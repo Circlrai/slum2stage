@@ -32,7 +32,7 @@ const contact = [
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white lg:pt-12 lg:pb-4 w-full" >
+    <footer className="bg-black text-white lg:pt-4 lg:pb-4 w-full" >
       <div className="max-w-7xl mx-auto flex flex-col px-4 lg:px-16">
         <div className="flex flex-col md:flex-row justify-between py-16">
           {/* Logo */}

@@ -36,7 +36,7 @@ export const Program_Card = ({
 
       {/* Header */}
       <CardHeader className="absolute z-30 top-1 flex-col !items-start p-4">
-        <p className="text-base lg:text-[42px] text-white uppercase font-bold font-sf-display rounded-md">
+        <p className="text-base lg:text-[42px] text-white uppercase font-bold font-sf-display rounded-md leading-snug lg:leading-[36px]">
           {title}
         </p>
       </CardHeader>

@@ -75,7 +75,7 @@ export function DanceRegistrationForm() {
       <div className="flex flex-col lg:flex-row w-full pt-24 justify-between lg:h-screen lg:overflow-hidden">
         <div className="w-full lg:w-3/5 px-4 pt-20 bg-white pb-4 lg:pb-20 lg:px-16
         lg:overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="space-y-4 mb-10 lg:ps-[15%] ">
+          <div className="space-y-4 mb-10 lg:ps-[16%] ">
             <h2
               className={`font-sf-display font-semibold text-[28px] md:text-[32px] lg:text-[56px]`}
             >
