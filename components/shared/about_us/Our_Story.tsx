@@ -25,7 +25,7 @@ const YearSection: React.FC<YearSectionProps> = ({
       {/* Text Column */}
       <div>
         <Copy>
-          <h2 className="text-2xl lg:text-[56px] font-bold font-sf-display text-[#1E1E1E]">
+          <h2 className="text-2xl lg:text-[56px] font-bold font-sf-display text-[#1E1E1E] pt-2 pb-6">
             {year}.
           </h2>
         </Copy>
@@ -41,10 +41,9 @@ const YearSection: React.FC<YearSectionProps> = ({
       </div>
 
       {/* Image Column */}
-      <div className="relative w-full self-stretch overflow-visible flex items-start justify-start pt-[2px]">
+      <div className="relative w-full self-stretch overflow-visible flex items-start justify-start pt-[2px] lg:pt-0">
         <Image
           loading="lazy"
-          as={NextImage}
           src={imageSrc}
           alt={imageAlt}
           width={1000}
