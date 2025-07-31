@@ -31,7 +31,7 @@ export const ContactView = () => {
         <div className='space-y-4'>
           <Section_Heading title='Contact Us' />
           <Copy>
-            <p className={`w-full lg:max-w-md font-sf-display font-normal text-slum_gray_600 text-sm lg:text-[32px] leading-[36px] lg:leading-[32px] `}>
+            <p className={`w-full lg:max-w-md text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
               We intend to keep up with the rapidly changing world and will love to hear from you!
             </p>
           </Copy>

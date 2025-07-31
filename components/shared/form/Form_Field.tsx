@@ -22,6 +22,10 @@ interface FormFieldProps {
   maxLen?: number;
   disabled?: boolean;
   register?: UseFormRegisterReturn;
+  inputClassName?: string;
+  labelClassName?: string;
+
+
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -39,17 +43,25 @@ const FormField: React.FC<FormFieldProps> = ({
   maxLen,
   disabled,
   register,
+  inputClassName,
+  labelClassName
 }) => {
   return (
     <div className="flex flex-col space-y-1.5">
-      <Label htmlFor={htmlFor} className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal">
+      <Label
+        htmlFor={htmlFor}
+        className={`mb-2 text-sm md:text-base lg:text-xl font-sf-display font-normal ${labelClassName || "text-black"}`}
+      >
         {label} <sup className="text-danger">{reqValue}</sup>
       </Label>
+
       <Input
         type={type}
         id={id}
         variant="bordered"
+
         classNames={{
+          input: inputClassName,
           inputWrapper: [
             "data-[hover=true]:border-slum_gray_300 font-sf-display font-normal",
             "group-data-[focus=true]:border-slum_gray_300",

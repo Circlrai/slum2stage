@@ -6,6 +6,7 @@ import { getAllTeamMembers } from "@/lib";
 import { Tabs, Tab } from "@heroui/react";
 import { Section_Heading } from "../Section_Heading";
 import { Section_Paragraph } from "../Section_Paragraph";
+import Copy from "../navigation/Text_Reveal_Animation";
 
 const allMembers = getAllTeamMembers();
 
@@ -51,11 +52,20 @@ export function TeamTabs() {
   return (
     <>
       <div className="mt-8 mb-4 space-y-4 ps-0 lg:ps-[8%]">
-        <Section_Heading lgSize="56px" title="Meet the team" />
-        <Section_Paragraph paragraph="Get to know the passionate professionals behind our program" />
+        <Copy>
+          <h2 className={`font-sf-display font-bold text-slum_gray_800 text-xl md:text-[32px] lg:text-72 uppercase mb-6`}>
+            Meet the&nbsp;<span className='font-thin text-gray-400'>Team</span>
+          </h2>
+        </Copy>
+        <Copy delay={0.2}>
+          <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+            Get to know the passionate professionals behind our program
+          </p>
+        </Copy>
+
       </div>
 
-      <div className="flex flex-col items-center justify-center px-0 lg:px-2">
+      <div className="flex flex-col items-center justify-center px-0 lg:px-2 lg:mt-8 ">
         <Tabs
           selectedKey={selectedTab}
           onSelectionChange={(key) => setSelectedTab(String(key))}
