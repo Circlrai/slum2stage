@@ -7,8 +7,9 @@ import Button from "../Slum_Button"
 import { Menu, X } from "lucide-react"
 import logo from "../../../public/assets/images/Logo.svg"
 import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
 import clsx from "clsx"
+import { gsap } from "gsap"
+import { useGSAP } from "@gsap/react"
 
 const navigation = [
   { title: "About us", route: "/about-us" },
@@ -20,34 +21,63 @@ const navigation = [
 ]
 
 export function Header() {
+  const container = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
   const headerRef = useRef<HTMLDivElement>(null)
-  const menuRef = useRef<HTMLDivElement>(null)
-  const overlayRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
+  const tl = useRef<gsap.core.Timeline>();
+
+  useGSAP(() => {
+    // Initial setup for animations
+    gsap.set(".mobile-menu-overlay", { y: "-100%", autoAlpha: 0 });
+    gsap.set(".menu-link-item", { y: 20, autoAlpha: 0 });
+
+    // Create timeline
+    tl.current = gsap.timeline({ paused: true })
+      .to(".mobile-menu-overlay", {
+        y: "0%",
+        autoAlpha: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
+        onStart: () => {
+          document.body.style.overflow = "hidden";
+        }
+      })
+      .to(".menu-link-item", {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: "power2.out"
+      }, "-=0.3");
+  }, { scope: container });
+
   const toggleMenu = (e: React.MouseEvent) => {
-    e.preventDefault()
-    if (isAnimating) return
-    setIsAnimating(true)
-    setIsMenuOpen(prev => !prev)
+    e.preventDefault();
+
+    if (tl.current) {
+      if (!isMenuOpen) {
+        setIsMenuOpen(true);
+        tl.current.play();
+      } else {
+        tl.current.reverse().then(() => {
+          setIsMenuOpen(false);
+          document.body.style.overflow = "";
+        });
+      }
+    }
   }
 
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
+  const closeMenu = () => {
+    if (tl.current && isMenuOpen) {
+      tl.current.reverse().then(() => {
+        setIsMenuOpen(false);
+        document.body.style.overflow = "";
+      });
     }
-
-    return () => {
-      document.body.style.overflow = ""
-    }
-  }, [isMenuOpen])
-
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,45 +85,19 @@ export function Header() {
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-
-  useEffect(() => {
-    if (!menuRef.current || !overlayRef.current) return
-
-    const menuElement = menuRef.current
-    const overlayElement = overlayRef.current
-
-    const handleAnimationEnd = () => {
-      setIsAnimating(false)
-    }
-
-    menuElement.addEventListener("transitionend", handleAnimationEnd)
-    overlayElement.addEventListener("transitionend", handleAnimationEnd)
-
-    return () => {
-      menuElement.removeEventListener("transitionend", handleAnimationEnd)
-      overlayElement.removeEventListener("transitionend", handleAnimationEnd)
-    }
-  }, [])
-
 
   const handleDonate = () => {
     router.push("/donate")
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header className="fixed top-0 left-0 w-full z-50" ref={container}>
       {/* Overlay */}
       <div
-        ref={overlayRef}
-        className={clsx(
-          "fixed inset-0 bg-black z-40 transition-opacity duration-300",
-          isMenuOpen ? "opacity-50 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        onClick={toggleMenu}
+        className="fixed inset-0 bg-black z-40 pointer-events-none mobile-menu-overlay opacity-0"
+        onClick={closeMenu}
       />
 
       <div
@@ -116,7 +120,7 @@ export function Header() {
         <nav className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center space-x-6">
             {navigation.map((item, index) => (
-              <li key={index} className="uppercase text-sm text-slum_gray_800 font-sans font-normal">
+              <li key={index} className="uppercase text-sm text-slum_gray_800 font-sf-display font-normal">
                 <Link href={item.route}>{item.title}</Link>
               </li>
             ))}
@@ -135,22 +139,10 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        ref={menuRef}
-        initial={{ translateY: -20, opacity: 0 }}
-        animate={{
-          translateY: isMenuOpen ? 0 : -20,
-          opacity: isMenuOpen ? 1 : 0,
-        }}
-        transition={{ duration: 0.25 }}
-        className={clsx(
-          "fixed inset-0 z-50 bg-white w-full h-screen overflow-y-auto transition-all duration-300",
-          isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-        )}
-      >
+      <div className="mobile-menu-overlay fixed inset-0 z-50 bg-white w-full h-screen overflow-y-auto invisible">
         {/* Top Bar: Logo & Close Button */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-          <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2">
+          <Link href="/" onClick={closeMenu} className="flex items-center gap-2">
             <Image
               loading="lazy"
               src={logo}
@@ -158,7 +150,7 @@ export function Header() {
               className="w-20 sm:w-24"
             />
           </Link>
-          <button onClick={toggleMenu}>
+          <button onClick={closeMenu}>
             <X size={28} />
             <span className="sr-only">Close menu</span>
           </button>
@@ -169,23 +161,25 @@ export function Header() {
           {navigation.map((item, index) => (
             <li
               key={index}
-              className="uppercase text-sm text-slum_gray_800 font-sans font-normal w-full transition-all duration-200 hover:bg-gray-100 rounded-md"
+              className="menu-link-item uppercase text-sm text-slum_gray_800 font-sf-display font-normal w-full opacity-0"
             >
               <Link
                 href={item.route}
-                onClick={() => setIsMenuOpen(false)}
-                className="block w-full py-3 px-4"
+                onClick={closeMenu}
+                className="block w-full py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
               >
                 {item.title}
               </Link>
             </li>
           ))}
-          <li className="w-full mt-4 px-4">
-            <Button variant="circular-filled" text="DONATE" onClick={handleDonate} />
+          <li className="menu-link-item w-full mt-4 px-4 opacity-0">
+            <Button variant="circular-filled" text="DONATE" onClick={() => {
+              handleDonate();
+              closeMenu();
+            }} />
           </li>
         </ul>
-      </motion.div>
-
+      </div>
     </header>
   )
 }

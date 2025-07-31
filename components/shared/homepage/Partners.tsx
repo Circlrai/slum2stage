@@ -23,8 +23,9 @@ export const Partners = () => {
   return (
     <section className='w-full py-20'>
       <div className='max-w-7xl mx-auto flex flex-col items-center justify-center px-4 lg:px-16 space-y-8 lg:space-y-12'>
-        <h1 className='font-serif font-bold text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] mb-8 leading-snug'>
-          We are grateful <br />for our partners
+        <h1 className='font-sf-display font-semibold text-center text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] mb-8 leading-snug'>
+          Made possible by <br />
+          those who believe in us.
         </h1>
 
         {/* Grid with consistent 5 columns */}

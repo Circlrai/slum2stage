@@ -23,7 +23,7 @@ export function BlogCard({ post }: BlogCardProps) {
           />
         </div>
         <div className="p-5">
-          <h2 className="text-lg font-normal text-slum_gray_800 font-sans line-clamp-2 hover:text-primary">{post.title}</h2>
+          <h2 className="text-sm md:text-base lg:text-xl font-sf-display font-normal text-slum_gray_800 font-sans line-clamp-2 hover:text-primary">{post.title}</h2>
           {/* <p className="text-slum_gray_400 line-clamp-3 mb-3">{post.excerpt}</p> */}
           {/*  <div className="flex justify-between items-center text-sm text-slate-500">
             <span>{post.date}</span>

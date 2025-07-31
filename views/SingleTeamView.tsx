@@ -2,10 +2,10 @@
 
 import { ChevronLeft } from "lucide-react"
 import { TeamType } from "@/types"
-import Link from "next/link"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { CldImage } from "next-cloudinary"
-import { getCloudinaryUrl, getCldImageUrl } from "@/utils"
+import { getCldImageUrl } from "@/utils"
 import { useState } from "react"
 
 interface BlogPostPageProps {
@@ -17,6 +17,9 @@ interface BlogPostPageProps {
 export function SingleTeamView({ team }: BlogPostPageProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const cleanPublicId = team.image_public_id.replace('Slum2Stage_Website/', '');
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const from = searchParams.get('from');
 
   const placeholderUrl = getCldImageUrl({
     src: cleanPublicId,
@@ -26,16 +29,25 @@ export function SingleTeamView({ team }: BlogPostPageProps) {
     effect: 'colorize:50'
   })
 
+  const handleBack = () => {
+    if (from === 'executive' || from === 'advisory') {
+      router.push(`/team#${from}`);
+    } else {
+      router.push('/team');
+    }
+  };
+
   return (
     <section className="bg-white py-40 w-full flex flex-col items-center justify-center">
       <div className="max-w-7xl mx-auto items-start space-y-8 px-4 lg:px-16">
-        <Link
-          href="/team"
-          className="flex space-x-2 text-primary items-center justify-start capitalize font-sans font-normal text-sm lg:text-lg"
+        <button
+          type="button"
+          onClick={handleBack}
+          className="inline-flex items-center text-primary text-sm lg:text-lg font-sans font-normal hover:underline hover:opacity-80 transition-all duration-200"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 mr-1" />
           <span>Back to Team</span>
-        </Link>
+        </button>
 
         <div className="flex flex-col lg:flex-row items-start justify-between gap-20">
           <Card className="lg:w-2/5 w-full h-full overflow-hidden rounded-[20px] border-b-5 border-r-5 border-r-secondary border-b-secondary"
@@ -60,13 +72,13 @@ export function SingleTeamView({ team }: BlogPostPageProps) {
           </Card>
 
           <div className="w-full lg:w-3/5 flex flex-col gap-4 lg:pt-2 pt-0">
-            <h1 className="font-serif text-start text-slum_gray_800 text-xl w-full
+            <h1 className="font-sf-display text-start text-slum_gray_800 text-xl w-full
              md:text-2xl lg:text-5xl font-bold mb-3 uppercase">
               {team.name}
             </h1>
             <div
-              className="text-sm md:text-base leading-[40px]
-               text-slum_gray_800 [&>p]:mb-6 max-w-[620px] font-sans text-justify"
+              className="text-sm md:text-base lg:text-[25px] text-slum_gray_800 max-w-[620px] font-sf-display font-normal text-justify
+             [&>p]:mb-6 [&>p]:leading-[40px]"
               dangerouslySetInnerHTML={{ __html: team.content }}
             />
           </div>

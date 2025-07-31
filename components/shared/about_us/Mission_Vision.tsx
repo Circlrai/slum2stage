@@ -3,6 +3,7 @@
 import React from 'react';
 import { CloudinaryImage } from '@/utils';
 import { Image } from '@heroui/image';
+import Copy from '../navigation/Text_Reveal_Animation';
 
 interface MissionProps {
   cloudinaryPublicId: string;
@@ -37,7 +38,7 @@ const content: MissionProps[] = [
 export const Mission_Vision: React.FC = () => {
   return (
     <section className="hidden lg:flex w-full bg-smoke_white min-h-screen py-20 flex-col space-y-16">
-      <div className="max-w-7xl mx-auto py-12 gap-8 md:gap-16 mb-8 px-4 md:px-8 lg:px-16 flex flex-col items-center justify-center">
+      <div className="max-w-7xl mx-auto py-12 gap-8 md:gap-16 mb-8 px-4 md:px-8 lg:px-8 flex flex-col items-center justify-center">
         {content.map((item, index) => (
           <div
             key={index}
@@ -49,23 +50,24 @@ export const Mission_Vision: React.FC = () => {
                 loading="lazy"
                 src={item.fallbackImage}
                 alt={`${item.title} image`}
-                className={`w-full h-auto object-cover rounded-none ${item.imagePosition === 'top' ? 'mb-0' : 'mt-4'
+                className={`w-full h-auto object-cover rounded-lg ${item.imagePosition === 'top' ? 'mb-0' : 'mt-4'
                   }`}
               />
-              {/* <CloudinaryImage
-                public_id={item.cloudinaryPublicId}
-                fallbackSrc={item.fallbackImage}
-                alt={`${item.title} image`}
-              /> */}
             </div>
 
             <div className="w-1/2 text-start pt-10">
-              <h2 className="text-5xl font-bold capitalize mb-6 font-serif text-slum_gray_800">
-                {item.title}
-              </h2>
-              <p className="text-lg leading-[36px] text-slum_gray_600 font-sans w-[80%]">
-                {item.description}
-              </p>
+              <Copy>
+                <h2 className="text-5xl lg:text-[64px] font-sf-display font-semibold capitalize mb-6 font-sf-display text-slum_gray_800">
+                  {item.title}
+                </h2>
+              </Copy>
+
+              <Copy>
+                <p className="text-lg lg:text-[25px] leading-[32px] text-slum_gray_600 font-sf-display font-normal w-[80%]">
+                  {item.description}
+                </p>
+              </Copy>
+
             </div>
           </div>
         ))}

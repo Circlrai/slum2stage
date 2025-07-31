@@ -24,6 +24,7 @@ import { Why_We_Do_It } from "./about_us/Why_We_Do_It";
 import { CoreValues } from "./about_us/Core_Values";
 import Our_Story from "./about_us/Our_Story";
 import Presently from "./about_us/Presently";
+import { News_Section } from "./homepage/News_Section";
 
 // Our Program
 import { Our_Program } from "./Our_Program";
@@ -36,8 +37,6 @@ import { ImagesPlacement } from "./news/FormattedImages";
 import { TeamCard } from "./team/TeamCard";
 import { TeamTabs } from "./team/TeamTabs";
 
-import { GSAPLoader } from "./GsapLoader";
-
 export {
   Section_Heading,
   Section_Paragraph,
@@ -48,6 +47,7 @@ export {
   Who_We_Are,
   Providers,
   Chidinma_Story,
+  News_Section,
   Offerings,
   Our_programs,
   Testimonial_Carousel,
@@ -67,5 +67,4 @@ export {
   ImagesPlacement,
   TeamCard,
   TeamTabs,
-  GSAPLoader,
 };

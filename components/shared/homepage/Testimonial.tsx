@@ -89,7 +89,7 @@ export const Testimonial_Carousel = () => {
                   <div className={`testimonial-card ${position}-position shadow-md h-[300px] md:h-[320px] lg:h-[380px] flex flex-col justify-between`}>
                     <div className="testimonial-content">
                       {testimonial.content.split("\n\n").map((paragraph, i) => (
-                        <p key={i} className="mb-4 font-sans font-normal text-sm lg:text-base text-slum_gray_600 leading-8">
+                        <p key={i} className="mb-4 font-sans font-normal text-sm lg:text-base text-slum_gray_600 leading-[32px]">
                           {paragraph}
                         </p>
                       ))}

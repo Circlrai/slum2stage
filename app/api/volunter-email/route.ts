@@ -16,8 +16,9 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.RECEIVER_EMAIL,
+    replyTo: email,
     subject: `Volunteer Enquiry from ${guardian}`,
-    text: `Hello, I am making an enquiry to volunteer with Slum2Stage for ${kids} kid(s).`,
+    text: `Hello, I am ${guardian}, making an enquiry to volunteer with Slum2Stage for ${kids} kid(s).`,
   };
 
   const sendMailPromise = () =>

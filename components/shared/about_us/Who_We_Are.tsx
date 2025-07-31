@@ -1,12 +1,13 @@
 "use client"
 
 import { Image } from "@heroui/react";
-import NextImage from "next/image";
 import React from 'react'
 import { Section_Heading } from '../Section_Heading'
-import { Section_Paragraph } from '../Section_Paragraph'
 import Button from '../Slum_Button'
 import { useRouter } from "next/navigation";
+import Copy from "../navigation/Text_Reveal_Animation";
+
+
 
 const About_Who_We_Are = () => {
   const router = useRouter();
@@ -21,12 +22,14 @@ const About_Who_We_Are = () => {
 
         <div className="w-full lg:w-1/2 space-y-8 text-slum_gray_800 py-10 order-2 lg:order-1">
           <Section_Heading lgSize="56px" color='white' title="Who we are!" />
-          <Section_Paragraph
-            color='white'
-            paragraph={`Slum to Stage creates preliminary and intermediate dance training for children and young adults in developing areas in Abuja through performing and creative arts programs that enhance both their academic and artistic performance, in cooperation with the Local Education Authority and Universal Basic Education Board in Abuja.
+          <Copy delay={0.2}>
+            <p className={`font-sans font-normal text-white text-sm lg:text-2xl leading-[36px] lg:leading-[32px] w-full lg:max-w-lg`}>
 
-          \nOur training program provide these students with the opportunity to explore their talents, while improving their socio-behavioural skills in class and at home.`} />
-
+              Slum to Stage creates preliminary and intermediate dance training for children and young adults in developing areas in Abuja through performing and creative arts programs that enhance both their academic and artistic performance, in cooperation with the Local Education Authority and Universal Basic Education Board in Abuja.
+              <br /><br />
+              Our training program provide these students with the opportunity to explore their talents, while improving their socio-behavioural skills in class and at home.
+            </p>
+          </Copy>
           <div className='md:hidden block'>
             <Button variant='circular-filled' text='Learn more' onClick={handleLearMore}
             />
@@ -37,8 +40,8 @@ const About_Who_We_Are = () => {
         <div className="w-full lg:w-1/2 h-full order-1 lg:order-2">
           <Image
             loading="lazy"
-            as={NextImage}
-            src="/assets/images/about-us/who-we-are.png"
+            //as={NextImage}
+            src="/assets/images/about-us/who.png"
             alt="Dancers in colorful traditional attire in an artistic pose"
             width={800}
             height={500}

@@ -36,14 +36,14 @@ export const Program_Card = ({
 
       {/* Header */}
       <CardHeader className="absolute z-30 top-1 flex-col !items-start p-4">
-        <p className="text-base lg:text-lg text-white uppercase font-bold font-sans rounded-md">
+        <p className="text-base lg:text-[42px] text-white uppercase font-bold font-sf-display rounded-md leading-snug lg:leading-[36px]">
           {title}
         </p>
       </CardHeader>
 
       {/* Footer (Reveal on Hover) */}
-      <CardFooter className="absolute bottom-0 z-30 text-white p-4 font-sans
-       opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-base">
+      <CardFooter className="absolute bottom-0 z-30 text-white p-4
+       opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm lg:text-[24px] font-sf-display font-normal">
         {description}
       </CardFooter>
     </Card>

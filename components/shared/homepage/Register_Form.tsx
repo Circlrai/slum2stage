@@ -19,7 +19,7 @@ import FormField from '../form/Form_Field';
 
 
 const Register_Form = () => {
-  const { register, handleSubmit, reset, formState: { isSubmitting, errors } } = useForm<FormOneData>();
+  const { register, handleSubmit, reset, setValue, formState: { isSubmitting, errors } } = useForm<FormOneData>();
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSubmittingLocal, setIsSubmittingLocal] = useState(false);
@@ -73,14 +73,9 @@ const Register_Form = () => {
 
         <div className="w-full md:w-1/2 flex items-center justify-center p-4 lg:p-6 mt-6 ps-[2%]">
           <div className="w-full max-w-md bg-white text-black rounded-xl p-8 md:bg-opacity-100 bg-opacity-90">
-            <h1 className="flex flex-col lg:hidden text-3xl font-serif mb-8 text-slum_gray-800">
-              Become a
-              <span className='font-semibold'>Volunter</span>
+            <h1 className="flex flex-col text-3xl lg:text-5xl font-sf-display font-semibold mb-8 lg:mb-4 text-slum_gray-800">
+              Become a Volunter
             </h1>
-
-            <div className='mb-4'>
-              <h1 className="hidden lg:flex text-5xl font-serif mb-8 text-slum_gray-800">Become a Volunteer</h1>
-            </div>
 
             {error && (
               <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
@@ -96,7 +91,7 @@ const Register_Form = () => {
                   type="text"
                   id="guardian"
                   size="sm"
-                  placeholder="Ogunjobi Michelle"
+                  placeholder="FirstName LastName"
                   reqValue="*"
                   required
                   register={register("guardian", { required: true })}
@@ -111,7 +106,7 @@ const Register_Form = () => {
                   type="email"
                   id="email"
                   size="sm"
-                  placeholder="oliverwilliams@gmail.com"
+                  placeholder="Enter Your Email"
                   reqValue="*"
                   required
                   register={register("email", { required: true })}
@@ -125,7 +120,10 @@ const Register_Form = () => {
                 <label className="block text-sm text-slum_gray_700 font-normal font-sans">
                   Number of Kids
                 </label>
-                <Select onValueChange={setSelectedKids}>
+                <Select onValueChange={(val) => {
+                  setSelectedKids(val)
+                  setValue("kids", val)
+                }}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select number of kids" />
                   </SelectTrigger>

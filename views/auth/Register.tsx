@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import FormField from "@/components/shared/form/Form_Field";
 import { Label } from "@/components/ui/label";
 import { PinterestMasonry } from "@/components/shared/Mansory_Grid";
-import { Section_Heading } from "@/components/shared";
 import { useState } from "react";
 import { FormTwoData } from "@/types/formType";
 import {
@@ -17,6 +16,8 @@ import { CircleCheckBig } from 'lucide-react';
 import { registrationEmail } from "@/utils/registerEmail";
 
 
+
+
 export function DanceRegistrationForm() {
   const {
     register,
@@ -26,6 +27,7 @@ export function DanceRegistrationForm() {
     watch,
     formState: { isSubmitting, errors },
   } = useForm<FormTwoData>();
+
 
   const [isSubmittingLocal, setIsSubmittingLocal] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -71,16 +73,16 @@ export function DanceRegistrationForm() {
   return (
     <>
       <div className="flex flex-col lg:flex-row w-full pt-24 justify-between lg:h-screen lg:overflow-hidden">
-        <div className="w-full lg:w-3/5 px-4 pt-20 bg-white pb-4 lg:pb-20 lg:px-12 
+        <div className="w-full lg:w-3/5 px-4 pt-20 bg-white pb-4 lg:pb-20 lg:px-16
         lg:overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="space-y-4 mb-10 lg:px-32">
+          <div className="space-y-4 mb-10 lg:ps-[16%] ">
             <h2
-              className={`font-serif font-bold text-[28px] md:text-[32px] lg:text-[48px]`}
+              className={`font-sf-display font-semibold text-[28px] md:text-[32px] lg:text-[56px]`}
             >
               Tiny Feets, Big Moves.
             </h2>
-            <p className="font-sans font-normal text-slum_gray_900 text-sm lg:text-lg leading-[36px] lg:leading-[32px]">
-              Join our dance school and give your child the opportunity to learn, grow, and perform.
+            <p className="w-full lg:max-w-xl font-sf-display font-normal text-slum_gray_900 text-sm md:text-base lg:text-[25px] leading-[36px] lg:leading-[32px]">
+              Join our  dance school and give your child the opportunity to learn, grow, and perform. Classes available for all ages and skill levels.
             </p>
           </div>
 
@@ -187,13 +189,13 @@ export function DanceRegistrationForm() {
 
             {/* Category Selection */}
             <div className="space-y-2">
-              <Label>Category</Label>
+              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal">Category</Label>
               <div className="flex gap-4">
                 {categoryOptions.map((category) => (
                   <button
                     key={category.id}
                     type="button"
-                    className={`border px-6 py-2 rounded-full ${selectedCategory === category.value ? "bg-primary text-white" : "border-gray-300"
+                    className={`border px-6 py-2 rounded-full font-sf-display font-normal ${selectedCategory === category.value ? "bg-primary text-white" : "border-gray-300"
                       }`}
                     onClick={() => setValue("category", category.value)}
                   >
@@ -205,13 +207,13 @@ export function DanceRegistrationForm() {
 
             {/* Dance Style Selection */}
             <div className="space-y-2">
-              <Label>Dance Style</Label>
+              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal"> Dance Style</Label>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {danceStyleOptions.map((style) => (
                   <button
                     key={style.id}
                     type="button"
-                    className={`border px-4 py-2 rounded-full ${selectedStyle === style.value ? "bg-primary text-white" : "border-gray-300"
+                    className={`border px-4 py-2 rounded-full font-sf-display font-normal ${selectedStyle === style.value ? "bg-primary text-white" : "border-gray-300"
                       }`}
                     onClick={() => setValue("danceStyle", style.value)}
                   >
@@ -221,14 +223,16 @@ export function DanceRegistrationForm() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting || isSubmittingLocal}
-              className={`hover:shadow-form rounded-full bg-primary py-3 px-8 text-base font-semibold text-white outline-none w-full ${isSubmitting || isSubmittingLocal ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
-            >
-              {(isSubmitting || isSubmittingLocal) ? 'Loading...' : 'REGISTER'}
-            </button>
+            <div className="w-1/2 flex items-center justify-center mx-auto mt-4">
+              <button
+                type="submit"
+                disabled={isSubmitting || isSubmittingLocal}
+                className={`hover:shadow-form rounded-full bg-primary py-3 px-8 text-base font-semibold text-white outline-none w-full ${isSubmitting || isSubmittingLocal ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+              >
+                {(isSubmitting || isSubmittingLocal) ? 'Loading...' : 'REGISTER'}
+              </button>
+            </div>
           </form>
         </div>
 

@@ -9,22 +9,33 @@ import {
   Testimonial_Carousel,
   Who_We_Are,
   Partners,
-  HeroSlider
+  HeroSlider,
+  News_Section
 } from '@/components/shared'
 import React from 'react'
+import ReactLenis from 'lenis/react'
+
+
+
+
 
 const HomeView = () => {
+
+
   return (
     <>
-      <HeroSlider />
-      <Who_We_Are />
-      <Chidinma_Story />
-      <Offerings />
-      <Our_programs />
-      <Timeline />
-      <Testimonial_Carousel />
-      <Partners />
-      <Register_Form />
+      <ReactLenis root>
+        <HeroSlider />
+        <Who_We_Are />
+        <Chidinma_Story />
+        <News_Section />
+        <Offerings />
+        <Our_programs />
+        <Timeline />
+        <Testimonial_Carousel />
+        <Partners />
+        <Register_Form />
+      </ReactLenis>
     </>
   )
 }

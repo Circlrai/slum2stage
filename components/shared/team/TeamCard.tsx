@@ -48,8 +48,8 @@ export function TeamCard({ team }: TeamCardProps) {
 
   return (
     <Card className="relative border-none max-w-[313px] h-full overflow-hidden cursor-pointer group">
-      <Link
-        href={`/team/${team.slug}`}
+
+      <Link href={`/team/${team.slug}?from=${team.role}`}
         className="block"
         data-og-image={ogImageUrl}
       >

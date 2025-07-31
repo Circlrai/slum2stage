@@ -42,7 +42,7 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   return (
     <div className="flex flex-col space-y-1.5">
-      <Label htmlFor={htmlFor} className="mb-2 text-sm text-black font-sans">
+      <Label htmlFor={htmlFor} className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal">
         {label} <sup className="text-danger">{reqValue}</sup>
       </Label>
       <Input
@@ -51,7 +51,7 @@ const FormField: React.FC<FormFieldProps> = ({
         variant="bordered"
         classNames={{
           inputWrapper: [
-            "data-[hover=true]:border-slum_gray_300",
+            "data-[hover=true]:border-slum_gray_300 font-sf-display font-normal",
             "group-data-[focus=true]:border-slum_gray_300",
             "rounded-[8px] font-sans",
           ],

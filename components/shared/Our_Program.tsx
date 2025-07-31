@@ -3,11 +3,16 @@
 import Image from 'next/image'
 import React from 'react'
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
+import Copy from './navigation/Text_Reveal_Animation'
 
 interface ProgrmProps {
   heading: string
   spanText: string
-  description: string
+  description1: string
+  description2: string
+  description3?: string
+  description4?: string
+  description5?: string
   image: string
   quote: string
   quoteColor?: string
@@ -19,7 +24,11 @@ interface ProgrmProps {
 export const Our_Program: React.FC<ProgrmProps> = ({
   heading,
   spanText,
-  description,
+  description1,
+  description2,
+  description3,
+  description4,
+  description5,
   image,
   quote,
   author,
@@ -35,19 +44,42 @@ export const Our_Program: React.FC<ProgrmProps> = ({
 
         <div className='pt-6 lg:-mt-4 w-full lg:w-1/2 order-2 lg:order-1'>
           <div>
-            <h2 className={`font-sans font-bold text-slum_gray_800 text-xl md:text-[32px] lg:text-72 uppercase mb-6`}>
-              {heading}&nbsp;<span className='font-thin text-gray-400'>{spanText}</span>
-            </h2>
+            <Copy>
+              <h2 className={`font-sf-display font-bold text-slum_gray_800 text-xl md:text-[32px] lg:text-72 uppercase mb-6`}>
+                {heading}&nbsp;<span className='font-thin text-gray-400'>{spanText}</span>
+              </h2>
+            </Copy>
           </div>
 
-          <p className={`text-justify font-sans font-normal text-slum_gray_800 text-sm lg:text-base leading-[36px] lg:leading-[32px]`}>
-            {description.split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))}
-          </p>
+          <Copy delay={0.2}>
+            <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+              {description1}
+            </p>
+          </Copy>
+          <br />
+          <Copy delay={0.4}>
+            <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+              {description2}
+            </p>
+          </Copy>
+          <br />
+          <Copy delay={0.6}>
+            <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+              {description3}
+            </p>
+          </Copy>
+          <br />
+          <Copy delay={0.8}>
+            <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+              {description4}
+            </p>
+          </Copy>
+          <br />
+          <Copy delay={0.10}>
+            <p className={`text-justify font-sf-display font-normal text-slum_gray_800 text-sm md:text-base lg:text-[24px] leading-[36px] lg:leading-[32px]`}>
+              {description5}
+            </p>
+          </Copy>
         </div>
 
         {/* Image and Quote */}
@@ -70,8 +102,9 @@ export const Our_Program: React.FC<ProgrmProps> = ({
             style={{ color: quoteColor }}
           >
 
-            <div className="flex relative text-lg font-sans italic leading-relaxed">
+            <div className="flex relative text-lg font-sf-display italic leading-relaxed">
               {/* <FaQuoteLeft className="w-4 h-4 opacity-70 flex-shrink-0 mt-1 mr-2" /> */}
+
               <q >
                 {quote.split("\n").map((line, index, array) => (
                   <React.Fragment key={index}>
@@ -81,12 +114,16 @@ export const Our_Program: React.FC<ProgrmProps> = ({
                   </React.Fragment>
                 ))}
               </q>
+
             </div>
             {/* <FaQuoteRight className="w-4 h-4 opacity-70 ml-auto mt-2" /> */}
 
+
             {author && (
-              <p className='font-sans font-semibold pl-6'>&mdash;{author}</p>
+              <p className='font-sf-display font-semibold pl-6'>&mdash;{author}</p>
             )}
+
+
           </div>
         </div>
       </div>

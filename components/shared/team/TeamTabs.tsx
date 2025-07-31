@@ -1,25 +1,22 @@
-"use client";
+'use client';
 
-
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TeamCard } from "./TeamCard";
 import { getAllTeamMembers } from "@/lib";
 import { Tabs, Tab } from "@heroui/react";
 import { Section_Heading } from "../Section_Heading";
 import { Section_Paragraph } from "../Section_Paragraph";
 
-
-
 const allMembers = getAllTeamMembers();
-export function TeamTabs() {
 
+export function TeamTabs() {
   const executives = useMemo(
     () => allMembers.filter((member) => member.role === "executive"),
-    [allMembers]
+    []
   );
   const advisors = useMemo(
     () => allMembers.filter((member) => member.role === "advisor"),
-    [allMembers]
+    []
   );
 
   const tabs = [
@@ -37,9 +34,19 @@ export function TeamTabs() {
       content: executives.map((member) => (
         <TeamCard key={member.id} team={member} />
       )),
-      count: advisors.length,
+      count: executives.length,
     },
   ];
+
+  const [selectedTab, setSelectedTab] = useState("advisory");
+
+  // On mount, set tab based on URL hash
+  useEffect(() => {
+    const hash = window.location.hash?.replace("#", "");
+    if (hash === "executive" || hash === "advisory") {
+      setSelectedTab(hash);
+    }
+  }, []);
 
   return (
     <>
@@ -50,6 +57,8 @@ export function TeamTabs() {
 
       <div className="flex flex-col items-center justify-center px-0 lg:px-2">
         <Tabs
+          selectedKey={selectedTab}
+          onSelectionChange={(key) => setSelectedTab(String(key))}
           aria-label="Dynamic tabs"
           items={tabs}
           color="primary"
@@ -59,9 +68,11 @@ export function TeamTabs() {
           className="flex mx-auto justify-center items-center rounded-full bg-[#44B5D01A]/10 border border-gray-100"
         >
           {(item) => (
-            <Tab key={item.id} title={item.label} className=" w-full py-4 text-xl 
-            font-medium transition-colors px-16 font-sans 
-                 data-[state=active]:bg-primary data-[state=active]:text-white">
+            <Tab
+              key={item.id}
+              title={item.label}
+              className="w-full py-4 text-xl font-medium transition-colors px-16 font-sans data-[state=active]:bg-primary data-[state=active]:text-white"
+            >
               <div className="w-full mt-6">
                 <div className="flex flex-wrap justify-center gap-6">
                   {item.content}

@@ -26,8 +26,12 @@ export async function POST(request: NextRequest) {
     from: email,
     to: process.env.RECEIVER_EMAIL,
     subject: `Dance Registration for ${fullName}`,
-    text: `Hello, I recently registered for ${danceStyle} for my ${category}, am ${age}, and my parent name is
-     ${parentName}, the ${category} date of birth is ${dateOfBirth} and his/her age is ${age}, our address is ${address}`,
+    text: `
+    Hello, I recently registered for ${danceStyle} for my ${category}, I am ${age}, and my parent's name is ${parentName}.
+    Date of birth: ${dateOfBirth}.
+    Our address is: ${address}.
+    Contact email: ${email}
+  `,
   };
 
   const sendMailPromise = () =>

@@ -2,6 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: normal;
+    font-weight: 900;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-Black.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Black.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: italic;
+    font-weight: 900;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-BlackItalic.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-BlackItalic.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-BlackItalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-Bold.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Bold.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: italic;
+    font-weight: 700;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-BoldItalic.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-BoldItalic.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-Heavy.ttf') format('truetype'),
+         url('/assetsfonts/SFProFonts/SF-Pro-Display-Heavy.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Heavy.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: italic;
+    font-weight: 800;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-HeavyItalic.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-HeavyItalic.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-HeavyItalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/assets/fonts/SFProFonts/SF-Pro-Display-Light.ttf') format('truetype'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Light.woff2') format('woff2'),
+         url('/assets/fonts/SFProFonts/SF-Pro-Display-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProText';
+    src: url('/assets/fonts/SFProFonts/SFProText-Semibold.woff2') format('woff2'),
+        url('/assets/fonts/SFProFonts/SFProText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProText';
+    src: url('/assets/fonts/SFProFonts/SFProText-Regular.woff2') format('woff2'),
+        url('/assets/fonts/SFProFonts/SFProText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProText';
+    src: url('/assets/fonts/SFProFonts/SFProText-Medium.woff2') format('woff2'),
+        url('/assets/fonts/SFProFonts/SFProText-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libre';
+  src: url('/assets/fonts/LibreBaskerville-Regular.woff2') format('woff2'),
+  url('/assets/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libre';
+  src: url('/assets/fonts/LibreBaskerville-Bold.woff2') format('woff2'),
+  url('/assets/fonts/LibreBaskerville-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFCompactText';
+    src: url('/assets/fonts/SFProFonts/SFCompactText-Regular.woff2') format('woff2'),
+        url('/assets/fonts/SFProFonts/SFCompactText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+:root {
+  --font-sf-pro-display: 'SFProDisplay', sans-serif;
+  --font-sf-pro-text: 'SFProText', sans-serif;
+  --font-sf-compact: 'SFCompactText', sans-serif
+}
+
+
+
 :root {
   --primary: #44B5D0;
   --secondary: #056980;
@@ -24,6 +151,7 @@
   --primary-orange: #FFC645;
   
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -105,26 +233,19 @@
   .serif {
   font-family: 'Libre Baskerville', serif;
 }
-}
 
-@font-face {
-  font-family: 'Libre';
-  src: url('/assets/fonts/LibreBaskerville-Regular.woff2') format('woff2'),
-  url('/assets/fonts/LibreBaskerville-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+.font-sf-display {
+    font-family: var(--font-sf-pro-display);
+  }
 
-@font-face {
-  font-family: 'Libre';
-  src: url('/assets/fonts/LibreBaskerville-Bold.woff2') format('woff2'),
-  url('/assets/fonts/LibreBaskerville-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  
+.font-sf-text {
+    font-family: var(--font-sf-pro-text);
+  }
+  .font-sf-compact {
+    font-family: var(--font-sf-compact);
+  }
 }
-
 
 
 
@@ -482,4 +603,9 @@ hr {
 }
 
 
-
+.mobile-menu-overlay{
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.menu-link-item{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}

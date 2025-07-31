@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import Copy from "../navigation/Text_Reveal_Animation";
 
 const stats = [
   {
@@ -24,53 +25,70 @@ const stats = [
     description: "Volunteers actively participated in our programs",
     position: "left",
   },
-]
+];
 
 const AnimatedNumber = ({ targetNumber, trigger }: { targetNumber: number; trigger: boolean }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!trigger) return
+    if (!trigger) return;
 
-    let current = 0
-    const duration = 1500
-    const intervalTime = 20
-    const increment = targetNumber / (duration / intervalTime)
+    let current = 0;
+    const duration = 1500;
+    const intervalTime = 20;
+    const increment = targetNumber / (duration / intervalTime);
 
     const interval = setInterval(() => {
-      current += increment
+      current += increment;
       if (current >= targetNumber) {
-        setCount(targetNumber)
-        clearInterval(interval)
+        setCount(targetNumber);
+        clearInterval(interval);
       } else {
-        setCount(Math.floor(current))
+        setCount(Math.floor(current));
       }
-    }, intervalTime)
+    }, intervalTime);
 
-    return () => clearInterval(interval)
-  }, [trigger, targetNumber])
+    return () => clearInterval(interval);
+  }, [trigger, targetNumber]);
 
-  return <>{count.toLocaleString()}</>
-}
+  return <>{count.toLocaleString()}</>;
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.2, ease: "easeOut" },
+  }),
+};
 
 const Timeline = () => {
-  const sectionRef = useRef(null)
-  const inView = useInView(sectionRef, { once: true })
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true });
 
   return (
-    <section ref={sectionRef} className='w-full bg-snow_white min-h-screen py-32'>
-      <div className='flex flex-col items-center justify-center space-y-12'>
-        <div>
-          <h1 className='font-serif font-bold text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] flex flex-col leading-snug'>
+    <section ref={sectionRef} className="w-full bg-snow_white min-h-screen py-32">
+      <div className="flex flex-col items-center justify-center space-y-12">
+        {/* Section Title */}
+        <Copy>
+          <h1 className='font-sf-display font-semibold text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] flex flex-col leading-snug'>
             <span className='capitalize'>Our impact</span>
             <span className=''>in numbers</span>
           </h1>
+        </Copy>
 
-        </div>
-
+        {/* Mobile Grid */}
         <div className="grid grid-cols-1 gap-16 px-4 lg:hidden place-items-center mx-auto">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <motion.div
+              key={index}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              custom={index}
+              variants={fadeUp}
+              className="text-center"
+            >
               <h2 className="text-5xl font-bold mb-2 relative z-10 font-serif uppercase text-[#056980]">
                 <AnimatedNumber targetNumber={stat.number} trigger={inView} />
               </h2>
@@ -85,14 +103,13 @@ const Timeline = () => {
                   stat.description
                 )}
               </p>
-
-            </div>
+            </motion.div>
           ))}
         </div>
 
-
-        <div className=" hidden lg:block relative w-full max-w-4xl mx-auto py-16 px-4">
-          {/* Vertical line */}
+        {/* Desktop Timeline */}
+        <div className="hidden lg:block relative w-full max-w-4xl mx-auto py-16 px-4">
+          {/* Vertical dashed line */}
           <div className="absolute left-1/2 top-[8rem] bottom-[9.5rem] w-px border-l border-dashed border-secondary -translate-x-1/2" />
 
           <div className="relative space-y-32">
@@ -101,7 +118,13 @@ const Timeline = () => {
                 {/* Dot */}
                 <div className="absolute left-1/2 top-[40%] w-3 h-3 bg-secondary rounded-full -translate-x-1/2 -translate-y-1/2 z-10" />
 
-                <div className={`group relative flex ${stat.position === "left" ? "flex-row-reverse" : "flex-row"}`}>
+                <motion.div
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  custom={index}
+                  variants={fadeUp}
+                  className={`group relative flex ${stat.position === "left" ? "flex-row-reverse" : "flex-row"}`}
+                >
                   <div className="w-1/2" />
                   <div
                     className={`w-1/2 pt-7 ${stat.position === "left"
@@ -123,17 +146,15 @@ const Timeline = () => {
                         stat.description
                       )}
                     </p>
-
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

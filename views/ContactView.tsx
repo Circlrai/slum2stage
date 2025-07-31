@@ -3,6 +3,7 @@ import { Section_Heading, Section_Paragraph } from '@/components/shared'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { PhoneCall, Mail as Email } from 'lucide-react'
 import Image from 'next/image'
+import Copy from '@/components/shared/navigation/Text_Reveal_Animation'
 
 const lists = [
   {
@@ -26,10 +27,14 @@ const lists = [
 export const ContactView = () => {
   return (
     <section className='w-full bg-white pt-28 pb-40 lg:pb-0 flex lg:flex-row justify-between'>
-      <div className='lg:w-3/5 space-y-10 px-6 py-16 lg:px-14 lg:ps-32'>
+      <div className='lg:w-3/5 space-y-10 px-6 py-16 lg:px-14 lg:ps-[12%]'>
         <div className='space-y-4'>
           <Section_Heading title='Contact Us' />
-          <Section_Paragraph paragraph='We intend to keep up with the rapidly changing world and will love to hear from you!' />
+          <Copy>
+            <p className={`w-full lg:max-w-md font-sf-display font-normal text-slum_gray_600 text-sm lg:text-[32px] leading-[36px] lg:leading-[32px] `}>
+              We intend to keep up with the rapidly changing world and will love to hear from you!
+            </p>
+          </Copy>
         </div>
         <div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
           {lists.map((item, index) => (
@@ -44,8 +49,8 @@ export const ContactView = () => {
                 {item.icon}
               </CardHeader>
               <CardContent className='p-0'>
-                <h2 className='font-serif font-semibold text-2xl mb-4'>{item.heading}</h2>
-                <p className='font-sans text-base text-slum_gray_700 leading-7'>
+                <h2 className='font-sf-display font-semibold text-[32px] mb-4'>{item.heading}</h2>
+                <p className='font-sans text-sm md:text-base lg:text-lg text-slum_gray_700 leading-7'>
                   {item.description}
                   <strong className='ml-1'>{item.boldText}</strong>
                 </p>
