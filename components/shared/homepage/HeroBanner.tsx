@@ -239,7 +239,7 @@ export const HeroSlider = () => {
                   <motion.h1
                     variants={textReveal}
                     custom={0}
-                    className="hidden lg:block text-6xl font-sf-display font-medium leading-tight whitespace-pre-line text-start text-slum_gray_800"
+                    className="hidden lg:block text-6xl font-normal font-sf-display leading-tight whitespace-pre-line text-start text-slum_gray_800"
                   >
                     {slide.desktopTitle}
                   </motion.h1>

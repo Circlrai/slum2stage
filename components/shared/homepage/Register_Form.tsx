@@ -160,7 +160,7 @@ const Register_Form = () => {
             <button
               type="submit"
               disabled={isSubmitting || isSubmittingLocal}
-              className={`hover:shadow-form rounded-full bg-primary py-3 px-8 text-base font-semibold text-white w-full ${(isSubmitting || isSubmittingLocal) ? 'opacity-70 cursor-not-allowed' : ''
+              className={`hover:shadow-form rounded-full bg-primary py-3 px-8 text-base md:text-lg lg:text-[25px] font-semibold text-white w-full ${(isSubmitting || isSubmittingLocal) ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
             >
               {(isSubmitting || isSubmittingLocal) ? 'Sending...' : 'Submit'}
