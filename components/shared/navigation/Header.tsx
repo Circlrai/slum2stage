@@ -6,7 +6,7 @@ import Image from "next/image"
 import Button from "../Slum_Button"
 import { Menu, X } from "lucide-react"
 import logo from "../../../public/assets/images/Logo.svg"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import clsx from "clsx"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -26,6 +26,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const headerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+  const pathname = usePathname();
 
   const tl = useRef<gsap.core.Timeline>();
 
@@ -119,13 +120,23 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center space-x-6">
-            {navigation.map((item, index) => (
-              <li key={index} className="uppercase text-sm text-slum_gray_800 font-sf-display font-normal">
-                <Link href={item.route}>{item.title}</Link>
-              </li>
-            ))}
+            {navigation.map((item, index) => {
+              const isActive = pathname === item.route;
+              return (
+                <li
+                  key={index}
+                  className={clsx(
+                    "uppercase text-sm font-sf-display font-normal px-3 py-1 rounded-md transition-colors",
+                    isActive ? "text-primary underline" : "text-slum_gray_800"
+                  )}
+                >
+                  <Link href={item.route}>{item.title}</Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
+
 
         <div className="hidden lg:flex">
           <Button variant="circular-filled" text="DONATE" onClick={handleDonate} />

@@ -36,10 +36,8 @@ export function CoreValues() {
                 className={`flex items-start gap-6 p-2 
                   ${values.length % 2 !== 0 && value === values[values.length - 1] ? 'col-span-2' : ''}`}
               >
-                <Copy>
-                  {value.icon}
-                  <span className="text-gray-800 font-medium font-sans text-[28px]">{value.name}</span>
-                </Copy>
+                {value.icon}
+                <span className="text-gray-800 font-medium font-sans text-lg">{value.name}</span>
               </div>
             ))}
           </div>

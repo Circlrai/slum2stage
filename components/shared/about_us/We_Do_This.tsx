@@ -71,13 +71,12 @@ export default function We_Do_This() {
                 <BiSolidCircleHalf fill="#FFC645" className="text-slum_orange h-6 w-6 lg:w-12 lg:h-12" />
               </div>
 
-              <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sf-display">Thorough Curriculum</h2>
-
-              <p className="text-slum_gray_600 font-sf-text font-normal text-sm lg:text-[25px] 
+              <Copy>  <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sf-display">Thorough Curriculum</h2></Copy>
+              <Copy> <p className="text-slum_gray_600 font-sf-text font-normal text-sm lg:text-[25px] 
               leading-[32px] w-full lg:w-[90%]">
                 Working with schools to develop their teaching curriculum to inculcate social - emotional and behavioral
                 skills, in other to create a better learning environment for children.
-              </p>
+              </p></Copy>
 
             </div>
           </div>
@@ -91,12 +90,13 @@ export default function We_Do_This() {
                 <FaCertificate fill="#EC3BC0" className="text-slum_pink h-6 w-6 lg:w-12 lg:h-12" />
               </div>
 
-              <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-serif">After school Programs</h2>
-
-              <p className="text-slum_gray_600 font-sf-text font-normal text-sm lg:text-[25px] leading-[32px] w-full lg:w-[90%]">
-                Creating After-School programs to follow up on and support the academic learning progress of our
-                students.
-              </p>
+              <Copy><h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-serif">After school Programs</h2></Copy>
+              <Copy>
+                <p className="text-slum_gray_600 font-sf-text font-normal text-sm lg:text-[25px] leading-[32px] w-full lg:w-[90%]">
+                  Creating After-School programs to follow up on and support the academic learning progress of our
+                  students.
+                </p>
+              </Copy>
 
             </div>
           </div>

@@ -21,7 +21,7 @@ const YearSection: React.FC<YearSectionProps> = ({
   imageAlt,
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start lg:bg-[#D9D9D9] lg:rounded-lg lg:p-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-10 items-start lg:bg-[#D9D9D9] lg:rounded-lg lg:p-10">
       {/* Text Column */}
       <div>
         <Copy>
@@ -41,15 +41,16 @@ const YearSection: React.FC<YearSectionProps> = ({
       </div>
 
       {/* Image Column */}
-      <div className="relative w-full self-stretch overflow-visible flex items-start justify-start pt-[2px] lg:pt-0">
+      <div className="relative w-full lg:self-stretch overflow-visible flex items-start justify-start lg:pt-0">
         <Image
           loading="lazy"
           src={imageSrc}
           alt={imageAlt}
           width={1000}
-          height={700}
-          className="object-contain w-full h-full"
+          height={0}
+          className="object-contain w-full h-auto max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[700px]"
         />
+
       </div>
     </div>
   );
@@ -107,7 +108,7 @@ const Our_Story: React.FC = () => {
     <section className='bg-white w-full py-20'>
       <div className='flex flex-col space-y-12 px-4 lg:px-0 items-center justify-center'>
         <Section_Heading lgSize='56px' title='Our Story' />
-        <div className="max-w-7xl mx-auto py-8 space-y-20 px-4 md:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto py-4 lg:py-8 space-y-8 lg:space-y-20 px-4 md:px-8 lg:px-16">
           {yearData.map((data, index) => (
             <YearSection key={index} {...data} />
           ))}
