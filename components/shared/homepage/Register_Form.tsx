@@ -1,11 +1,5 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Image } from '@heroui/image';
-import { useForm } from 'react-hook-form';
-import { FormOneData } from '@/types/formType';
-import { sendEmail } from '@/utils';
 import {
   Dialog,
   DialogContent,
@@ -13,7 +7,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FormOneData } from '@/types/formType';
+import { sendEmail } from '@/utils';
+import { Image } from '@heroui/image';
 import { CircleCheckBig } from 'lucide-react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import FormField from '../form/Form_Field';
 
 
@@ -54,7 +54,7 @@ const Register_Form = () => {
 
 
   return (
-    <section className="relative bg-black min-h-screen text-white">
+    <section className="relative bg-black text-white">
 
       <div className="md:hidden absolute inset-0 z-0 h-[100dvh]">
         <div className="absolute inset-0 bg-black/10"></div>

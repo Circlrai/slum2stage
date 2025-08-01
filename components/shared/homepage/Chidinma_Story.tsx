@@ -1,9 +1,7 @@
 "use client"
 
 import { Image } from "@heroui/image"
-import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
-import { Chidinma_Paragraph } from "./Chidinma_Paragraph"
 import Copy from "../navigation/Text_Reveal_Animation"
 
 const Chidinma_Story = () => {
@@ -49,17 +47,17 @@ const Chidinma_Story = () => {
           {/* Right Column - Content */}
           <div className="w-full lg:w-1/2 space-y-4 text-[#FFFCFB] lg:-ml-[5%] lg:max-w-xl -mt-8 lg:-mt-0">
             <Copy delay={0.3}>
-              <p className="font-sf-text font-normal text-sm lg:text-base leading-[32px] lg:leading-[38px] text-[#FFFCFB]">
+              <p className="font-sans font-normal  text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg text-[#FFFCFB]">
                 Chidimma is a seven-year-old girl living in a small community in Abuja. She attends an affordable government school in Gwarimpa. Before Chidimma leaves for school on most days, her parents are usually engaged in heated arguments. Although she is seated in class.
               </p>
             </Copy>
             <Copy delay={0.4}>
-              <p className="font-sf-text font-normal text-sm lg:text-base leading-[32px] lg:leading-[38px] text-[#FFFCFB]">
+              <p className="font-sans font-normal text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg text-[#FFFCFB]">
                 Chidimma&apos;s mind wanders off reliving her experiences at home and dreaming of a life under different circumstances. Several times, she imagines herself on a stage, dancing to a crowd or, to her own shadow, twirling and taking giant leaps with the aim of reaching for the stars. On these days, she is snapped back to reality by her teacher&apos;s sudden yell.
               </p>
             </Copy>
             <Copy delay={0.5}>
-              <p className="font-sf-text font-normal text-sm lg:text-base leading-[32px] lg:leading-[38px] text-[#FFFCFB]">
+              <p className="font-sans font-normal text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg text-[#FFFCFB]">
 
                 {`This is often followed by a question asked for the sole purpose of humiliating her for 'lack of attention' in class.`}
 
@@ -67,7 +65,7 @@ const Chidinma_Story = () => {
             </Copy>
 
             <Copy delay={0.6}>
-              <p className="font-sf-text font-normal text-sm lg:text-base leading-[32px] lg:leading-[38px] text-[#FFFCFB]">
+              <p className="font-sans font-normal  text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg text-[#FFFCFB]">
                 Chidimma is corrected with compassion by her dance instructor and teammates, further emphasizing the importance of team work. Chidmma is also encouraged to create dance routines of her own which she teaches to the other dancers. This has brought about a significant shift and increase in her confidence and self-esteem.
               </p>
             </Copy>

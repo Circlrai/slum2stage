@@ -1,11 +1,10 @@
 "use client"
 
 import { Image } from "@heroui/react";
-import React from 'react'
-import { Section_Heading } from '../Section_Heading'
-import Button from '../Slum_Button'
 import { useRouter } from "next/navigation";
 import Copy from "../navigation/Text_Reveal_Animation";
+import { Section_Heading } from '../Section_Heading';
+import Button from '../Slum_Button';
 
 
 
@@ -23,7 +22,7 @@ const About_Who_We_Are = () => {
         <div className="w-full lg:w-1/2 space-y-8 text-slum_gray_800 py-10 order-2 lg:order-1">
           <Section_Heading lgSize="56px" color='white' title="Who we are!" />
           <Copy delay={0.2}>
-            <p className={`font-sans font-normal text-white text-sm lg:text-2xl leading-[36px] lg:leading-[32px] w-full lg:max-w-lg`}>
+            <p className={`font-sans font-normal text-white text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg w-full`}>
 
               Slum to Stage creates preliminary and intermediate dance training for children and young adults in developing areas in Abuja through performing and creative arts programs that enhance both their academic and artistic performance, in cooperation with the Local Education Authority and Universal Basic Education Board in Abuja.
               <br /><br />

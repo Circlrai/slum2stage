@@ -1,5 +1,4 @@
 import React from "react";
-import Copy from "../navigation/Text_Reveal_Animation";
 
 interface ChidinmaParagraphProps {
   paragraph: string;
@@ -9,7 +8,7 @@ interface ChidinmaParagraphProps {
 export const Chidinma_Paragraph = ({ paragraph, className = "" }: ChidinmaParagraphProps) => {
   return (
     <div className={`w-full flex ${className}`}>
-      <p className="font-sans font-normal text-sm lg:text-base leading-[32px] lg:leading-[38px] text-white">
+      <p className="font-sans font-normal text-white text-sm lg:text-2xl leading-[36px] lg:leading-[32px] lg:max-w-lg">
         {paragraph.split("\n").map((line, index) => (
           <React.Fragment key={index}>
             {line}
