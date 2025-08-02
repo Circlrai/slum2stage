@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Autoplay, Pagination } from "swiper/modules";
-import Image from "next/image";
-import Button from "../Slum_Button";
-import { Swiper, type SwiperClass, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React, { useRef, useState } from "react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, type SwiperClass, SwiperSlide } from "swiper/react";
+import Button from "../Slum_Button";
 
 interface SlideData {
   id: number;
@@ -231,7 +231,7 @@ export const HeroSlider = () => {
                   <motion.h1
                     variants={textReveal}
                     custom={0}
-                    className="block lg:hidden text-[32px] font-sf-display font-medium leading-tight whitespace-pre-line text-start text-slum_gray_800"
+                    className="block lg:hidden text-[32px] font-sans font-medium leading-tight whitespace-pre-line text-start text-slum_gray_800"
                   >
                     {slide.mobileTitle}
                   </motion.h1>
@@ -239,7 +239,7 @@ export const HeroSlider = () => {
                   <motion.h1
                     variants={textReveal}
                     custom={0}
-                    className="hidden lg:block text-6xl font-sf-display font-medium leading-tight whitespace-pre-line text-start text-slum_gray_800"
+                    className="hidden lg:block text-6xl font-sans font-medium leading-tight whitespace-pre-line text-start text-slum_gray_800"
                   >
                     {slide.desktopTitle}
                   </motion.h1>

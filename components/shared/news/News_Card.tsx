@@ -1,10 +1,9 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import Copy from "../navigation/Text_Reveal_Animation"
 
 interface NewsCardProps {
   slug: string
@@ -40,7 +39,7 @@ export function NewsCard({ description, image, slug, linkText = "View more" }: N
           <div className="mt-auto pt-3">
             <Button
               variant="link"
-              className="p-0 h-auto text-base text-secondary font-semibold font-sf-display"
+              className="p-0 h-auto text-base text-secondary font-semibold font-sans"
               onClick={() => router.push(`/news/${slug}`)}
             >
               {linkText}

@@ -15,9 +15,9 @@ const Chidinma_Story = () => {
     <section className="w-full bg-secondary py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="space-y-2 mb-8 lg:mb-12 lg:ps-[4%]">
-          <p className="text-[#FFFCFB] text-sm lg:text-base font-medium font-sf-display">Why we do what we do</p>
-          <h2 className="text-[#FFFCFB] text-3xl lg:text-5xl font-bold font-sf-display">Chidinma&apos;s Story</h2>
-          <p className="text-[#FFFCFB] text-sm lg:text-base font-sf-display">A Student in the program</p>
+          <p className="text-[#FFFCFB] text-sm lg:text-base font-medium font-sans">Why we do what we do</p>
+          <h2 className="text-[#FFFCFB] text-3xl lg:text-5xl font-bold font-sans">Chidinma&apos;s Story</h2>
+          <p className="text-[#FFFCFB] text-sm lg:text-base font-sans">A Student in the program</p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start justify-start">

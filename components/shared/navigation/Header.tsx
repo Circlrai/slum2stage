@@ -1,15 +1,15 @@
 "use client"
 
-import Link from "next/link"
-import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
-import Button from "../Slum_Button"
-import { Menu, X } from "lucide-react"
-import logo from "../../../public/assets/images/Logo.svg"
-import { useRouter } from "next/navigation"
+import { useGSAP } from "@gsap/react"
 import clsx from "clsx"
 import { gsap } from "gsap"
-import { useGSAP } from "@gsap/react"
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect, useRef, useState } from "react"
+import logo from "../../../public/assets/images/Logo.svg"
+import Button from "../Slum_Button"
 
 const navigation = [
   { title: "About us", route: "/about-us" },
@@ -120,7 +120,7 @@ export function Header() {
         <nav className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center space-x-6">
             {navigation.map((item, index) => (
-              <li key={index} className="uppercase text-sm text-slum_gray_800 font-sf-display font-normal">
+              <li key={index} className="uppercase text-sm text-slum_gray_800 font-sans font-normal">
                 <Link href={item.route}>{item.title}</Link>
               </li>
             ))}
@@ -161,7 +161,7 @@ export function Header() {
           {navigation.map((item, index) => (
             <li
               key={index}
-              className="menu-link-item uppercase text-sm text-slum_gray_800 font-sf-display font-normal w-full opacity-0"
+              className="menu-link-item uppercase text-sm text-slum_gray_800 font-sans font-normal w-full opacity-0"
             >
               <Link
                 href={item.route}

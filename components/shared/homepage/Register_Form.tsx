@@ -73,7 +73,7 @@ const Register_Form = () => {
 
         <div className="w-full md:w-1/2 flex items-center justify-center p-4 lg:p-6 mt-6 ps-[2%]">
           <div className="w-full max-w-md bg-white text-black rounded-xl p-8 md:bg-opacity-100 bg-opacity-90">
-            <h1 className="flex flex-col text-3xl lg:text-5xl font-sf-display font-semibold mb-8 lg:mb-4 text-slum_gray-800">
+            <h1 className="flex flex-col text-3xl lg:text-5xl font-sans font-semibold mb-8 lg:mb-4 text-slum_gray-800">
               Become a Volunter
             </h1>
 

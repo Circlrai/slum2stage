@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
-import { CloudinaryImage } from '@/utils';
 import { Image } from '@heroui/image';
+import React from 'react';
 import Copy from '../navigation/Text_Reveal_Animation';
 
 interface MissionProps {
@@ -57,13 +56,13 @@ export const Mission_Vision: React.FC = () => {
 
             <div className="w-1/2 text-start pt-10">
               <Copy>
-                <h2 className="text-5xl lg:text-[64px] font-sf-display font-semibold capitalize mb-6 font-sf-display text-slum_gray_800">
+                <h2 className="text-5xl lg:text-[64px] font-sans font-semibold capitalize mb-6 font-sans text-slum_gray_800">
                   {item.title}
                 </h2>
               </Copy>
 
               <Copy>
-                <p className="text-lg lg:text-[25px] leading-[32px] text-slum_gray_600 font-sf-display font-normal w-[80%]">
+                <p className="text-lg lg:text-[25px] leading-[32px] text-slum_gray_600 font-sans font-normal w-[80%]">
                   {item.description}
                 </p>
               </Copy>

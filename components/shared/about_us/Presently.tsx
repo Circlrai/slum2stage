@@ -1,9 +1,7 @@
 "use client";
 
-import React from 'react'
-import { Section_Heading } from '../Section_Heading'
-import Image from 'next/image'
-import Copy from '../navigation/Text_Reveal_Animation'
+import Image from 'next/image';
+import { Section_Heading } from '../Section_Heading';
 
 
 const lists = [
@@ -34,7 +32,7 @@ const Presently = () => {
         <div className='ps-4 lg:ps-[33.3%]'>
           <ol className='space-y-6 list-decimal'>
             {lists.map((list, index) => (
-              <li key={index} className='font-sf-display font-normal text-sm lg:text-[25px] leading-[32px]'>
+              <li key={index} className='font-sans font-normal text-sm lg:text-[25px] leading-[32px]'>
                 {list}
               </li>
             ))}

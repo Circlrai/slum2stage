@@ -1,9 +1,9 @@
 "use client";
 
-import { Flag, Droplet, Diamond, CircleUser, Heart } from "lucide-react"
+import { CircleUser, Diamond, Droplet, Flag, Heart } from "lucide-react";
 import { PiUsersThree } from "react-icons/pi";
 import { TbBrush } from "react-icons/tb";
-import { Section_Heading } from "../Section_Heading"
+import { Section_Heading } from "../Section_Heading";
 import Copy from "../navigation/Text_Reveal_Animation";
 
 
@@ -52,7 +52,7 @@ export function CoreValues() {
               {topRowValues.map((value) => (
                 <div key={value.name} className="flex items-center gap-2">
                   {value.icon}
-                  <span className="text-gray-800 font-normal font-sf-display text-[46px]">{value.name}</span>
+                  <span className="text-gray-800 font-normal font-sans text-[46px]">{value.name}</span>
                 </div>
               ))}
             </div>
@@ -61,7 +61,7 @@ export function CoreValues() {
               {bottomRowValues.map((value) => (
                 <div key={value.name} className="flex items-center justify-center gap-2">
                   {value.icon}
-                  <span className="text-gray-800 font-normal font-sf-display text-[46px]">{value.name}</span>
+                  <span className="text-gray-800 font-normal font-sans text-[46px]">{value.name}</span>
                 </div>
               ))}
             </div>

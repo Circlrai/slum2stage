@@ -1,19 +1,19 @@
 "use client";
-import { useForm } from "react-hook-form";
 import FormField from "@/components/shared/form/Form_Field";
-import { Label } from "@/components/ui/label";
 import { PinterestMasonry } from "@/components/shared/Mansory_Grid";
-import { useState } from "react";
-import { FormTwoData } from "@/types/formType";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
 } from "@/components/ui/dialog";
-import { CircleCheckBig } from 'lucide-react';
+import { Label } from "@/components/ui/label";
+import { FormTwoData } from "@/types/formType";
 import { registrationEmail } from "@/utils/registerEmail";
+import { CircleCheckBig } from 'lucide-react';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 
 
@@ -77,11 +77,11 @@ export function DanceRegistrationForm() {
         lg:overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <div className="space-y-4 mb-10 lg:ps-[16%] ">
             <h2
-              className={`font-sf-display font-semibold text-[28px] md:text-[32px] lg:text-[56px]`}
+              className={`font-sans font-semibold text-[28px] md:text-[32px] lg:text-[56px]`}
             >
               Tiny Feets, Big Moves.
             </h2>
-            <p className="w-full lg:max-w-xl font-sf-display font-normal text-slum_gray_900 text-sm md:text-base lg:text-[25px] leading-[36px] lg:leading-[32px]">
+            <p className="w-full lg:max-w-xl font-sans font-normal text-slum_gray_900 text-sm md:text-base lg:text-[25px] leading-[36px] lg:leading-[32px]">
               Join our  dance school and give your child the opportunity to learn, grow, and perform. Classes available for all ages and skill levels.
             </p>
           </div>
@@ -189,13 +189,13 @@ export function DanceRegistrationForm() {
 
             {/* Category Selection */}
             <div className="space-y-2">
-              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal">Category</Label>
+              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sans font-normal">Category</Label>
               <div className="flex gap-4">
                 {categoryOptions.map((category) => (
                   <button
                     key={category.id}
                     type="button"
-                    className={`border px-6 py-2 rounded-full font-sf-display font-normal ${selectedCategory === category.value ? "bg-primary text-white" : "border-gray-300"
+                    className={`border px-6 py-2 rounded-full font-sans font-normal ${selectedCategory === category.value ? "bg-primary text-white" : "border-gray-300"
                       }`}
                     onClick={() => setValue("category", category.value)}
                   >
@@ -207,13 +207,13 @@ export function DanceRegistrationForm() {
 
             {/* Dance Style Selection */}
             <div className="space-y-2">
-              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal"> Dance Style</Label>
+              <Label className="mb-2 text-sm md:text-base lg:text-xl text-black font-sans font-normal"> Dance Style</Label>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {danceStyleOptions.map((style) => (
                   <button
                     key={style.id}
                     type="button"
-                    className={`border px-4 py-2 rounded-full font-sf-display font-normal ${selectedStyle === style.value ? "bg-primary text-white" : "border-gray-300"
+                    className={`border px-4 py-2 rounded-full font-sans font-normal ${selectedStyle === style.value ? "bg-primary text-white" : "border-gray-300"
                       }`}
                     onClick={() => setValue("danceStyle", style.value)}
                   >

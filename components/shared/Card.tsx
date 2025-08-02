@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { Card, CardFooter, CardHeader, Image } from '@heroui/react'
 
 export const Program_Card = ({
@@ -36,14 +35,14 @@ export const Program_Card = ({
 
       {/* Header */}
       <CardHeader className="absolute z-30 top-1 flex-col !items-start p-4">
-        <p className="text-base lg:text-[42px] text-white uppercase font-bold font-sf-display rounded-md leading-snug lg:leading-[36px]">
+        <p className="text-base lg:text-[42px] text-white uppercase font-bold font-sans rounded-md leading-snug lg:leading-[36px]">
           {title}
         </p>
       </CardHeader>
 
       {/* Footer (Reveal on Hover) */}
       <CardFooter className="absolute bottom-0 z-30 text-white p-4
-       opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm lg:text-[24px] font-sf-display font-normal">
+       opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm lg:text-[24px] font-sans font-normal">
         {description}
       </CardFooter>
     </Card>

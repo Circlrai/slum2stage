@@ -1,10 +1,9 @@
 "use client"
 
-import React from 'react';
-import { Section_Heading } from '../Section_Heading';
 import { Image } from '@heroui/image';
-import NextImage from 'next/image';
+import React from 'react';
 import Copy from '../navigation/Text_Reveal_Animation';
+import { Section_Heading } from '../Section_Heading';
 
 
 interface YearSectionProps {
@@ -25,14 +24,14 @@ const YearSection: React.FC<YearSectionProps> = ({
       {/* Text Column */}
       <div>
         <Copy>
-          <h2 className="text-2xl lg:text-[56px] font-bold font-sf-display text-[#1E1E1E] pt-2 pb-6">
+          <h2 className="text-2xl lg:text-[56px] font-bold font-sans text-[#1E1E1E] pt-2 pb-6">
             {year}.
           </h2>
         </Copy>
         <div className="space-y-3">
           {items.map((item, index) => (
             <Copy delay={0.2} key={index}>
-              <p className="flex items-start font-sf-display font-medium text-sm lg:text-[23px] leading-[36px] lg:leading-[32px]">
+              <p className="flex items-start font-sans font-medium text-sm lg:text-[23px] leading-[36px] lg:leading-[32px]">
                 {item}
               </p>
             </Copy>

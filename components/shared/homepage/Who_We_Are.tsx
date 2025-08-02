@@ -1,9 +1,7 @@
 "use client"
 
-import React from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { Section_Heading } from "../Section_Heading"
 import Button from "../Slum_Button"
 import Copy from "../navigation/Text_Reveal_Animation"
 
@@ -21,7 +19,7 @@ export const Who_We_Are = () => {
           <div className="mb-16 lg:mb-24">
             <Copy>
               <h2
-                className={`font-sf-display font-semibold text-[#1E1E1E] text-[32px] lg:text-[72px] mb-4 lg:mb-0`}
+                className={`font-sans font-semibold text-[#1E1E1E] text-[32px] lg:text-[72px] mb-4 lg:mb-0`}
               >
                 Who we are
               </h2>
@@ -29,7 +27,7 @@ export const Who_We_Are = () => {
 
             <div className="mb-6 w-full lg:max-w-md lg:ps-[2%]">
               <Copy>
-                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] mb-2 font-normal font-sf-display w-full">
+                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] mb-2 font-normal font-sans w-full">
                   <strong>Slum to Stage </strong> is a <span className="text-cyan-400 font-medium">creative arts initiative</span> that
                   provides foundational and intermediate dance training to children and young adults in under-resourced
                   communities across Abuja.
@@ -38,7 +36,7 @@ export const Who_We_Are = () => {
             </div>
             <div className="mb-8 w-full lg:max-w-md lg:ps-[2%]">
               <Copy delay={0.2}>
-                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sf-display w-full">
+                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sans w-full">
                   Through dynamic performing and creative arts programs, we empower participants to grow both artistically
                   and academically, unlocking their potential and building confidence for a brighter future.
                 </p>
@@ -55,7 +53,7 @@ export const Who_We_Are = () => {
           <div className="mb-16">
             <Copy delay={0.3}>
               <h2
-                className={`font-sf-display font-semibold text-[#1E1E1E] text-[28px] md:text-[32px] lg:text-[72px] mb-4 lg:mb-0`}
+                className={`font-sans font-semibold text-[#1E1E1E] text-[28px] md:text-[32px] lg:text-[72px] mb-4 lg:mb-0`}
               >
                 What we do
               </h2>
@@ -63,7 +61,7 @@ export const Who_We_Are = () => {
 
             <div className=" mb-6 w-full lg:max-w-md lg:ps-[2%]">
               <Copy delay={0.4}>
-                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sf-display">
+                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sans">
                   <strong> At Slum to Stage,</strong> we offer preliminary and intermediate dance training to children and young adults in{" "}
                   <span className="text-cyan-400 font-medium">underserved communities across Abuja</span>.
                 </p>
@@ -71,7 +69,7 @@ export const Who_We_Are = () => {
             </div>
             <div className="mb-8 w-full lg:max-w-md lg:ps-[2%]">
               <Copy delay={0.5}>
-                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sf-display">
+                <p className="text-gray-700 text-base md:text-lg lg:text-[25px] leading-[32px] font-normal font-sans">
                   Our programs use the power of performing and creative arts to inspire growth, boosting both academic
                   performance and artistic expression. We create safe spaces where young people can discover their
                   talents, build discipline, and develop confidence through dance and movement.

@@ -1,7 +1,6 @@
 "use client"
 
 import { Image } from "@heroui/image"
-import React from "react"
 
 interface ImagesPlacementProps {
   content: string
@@ -39,7 +38,7 @@ export function ImagesPlacement({ content }: ImagesPlacementProps) {
       {paragraphs.map((para, index) => (
         <div
           key={index}
-          className="relative z-10 text-slum_gray_800 font-sf-display font-normal leading-[36px] text-sm md:text-base lg:text-lg"
+          className="relative z-10 text-slum_gray_800 font-sans font-normal leading-[36px] text-sm md:text-base lg:text-lg"
           dangerouslySetInnerHTML={{ __html: `${para}</p>` }}
         />
       ))}

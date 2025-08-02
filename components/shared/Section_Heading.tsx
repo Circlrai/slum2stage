@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import Copy from './navigation/Text_Reveal_Animation';
 
 interface SectionHeadingProps {
@@ -24,7 +23,7 @@ export const Section_Heading = ({
     <div>
       <Copy>
         <h2
-          className={`font-sf-display font-semibold text-${color} text-[28px] md:text-[32px] ${lgSizeClass}`}
+          className={`font-sans font-semibold text-${color} text-[28px] md:text-[32px] ${lgSizeClass}`}
         >
           {title}
         </h2>

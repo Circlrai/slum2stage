@@ -1,9 +1,7 @@
-import React from 'react'
-import { Section_Paragraph } from '@/components/shared/Section_Paragraph'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import Image from 'next/image'
 import { Section_Heading } from '@/components/shared'
 import Copy from '@/components/shared/navigation/Text_Reveal_Animation'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import Image from 'next/image'
 
 const lists = [
   {
@@ -41,7 +39,7 @@ export const DonationView = () => {
         <div className="space-y-4 lg:w-1/2 ps-0 lg:ps-[3.5%] ">
           <Section_Heading lgSize='56px' title='Make a donation' />
           <Copy>
-            <p className={`w-full lg:max-w-md font-sf-display font-normal text-slum_gray_600 text-sm lg:text-[32px] leading-[36px] lg:leading-[32px] `}>
+            <p className={`w-full lg:max-w-md font-sans font-normal text-slum_gray_600 text-sm lg:text-[32px] leading-[36px] lg:leading-[32px] `}>
               Slum to Stage uses dance to retain the interest of 290 children in schools.
             </p>
           </Copy>
@@ -57,7 +55,7 @@ export const DonationView = () => {
               {lists.map((item, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-2 gap-x-4 text-sm lg:text-xl text-gray-700 font-sf-display "
+                  className="grid grid-cols-2 gap-x-4 text-sm lg:text-xl text-gray-700 font-sans "
                 >
                   <div className=" font-normal">{item.label}</div>
                   <div className='font-semibold'>{item.value}</div>

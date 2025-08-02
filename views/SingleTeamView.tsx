@@ -1,11 +1,11 @@
 'use client'
 
-import { ChevronLeft } from "lucide-react"
-import { TeamType } from "@/types"
-import { useRouter, useSearchParams } from "next/navigation"
 import { Card } from "@/components/ui/card"
-import { CldImage } from "next-cloudinary"
+import { TeamType } from "@/types"
 import { getCldImageUrl } from "@/utils"
+import { ChevronLeft } from "lucide-react"
+import { CldImage } from "next-cloudinary"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 
 interface BlogPostPageProps {
@@ -72,12 +72,12 @@ export function SingleTeamView({ team }: BlogPostPageProps) {
           </Card>
 
           <div className="w-full lg:w-3/5 flex flex-col gap-4 lg:pt-2 pt-0">
-            <h1 className="font-sf-display text-start text-slum_gray_800 text-xl w-full
+            <h1 className="font-sans text-start text-slum_gray_800 text-xl w-full
              md:text-2xl lg:text-5xl font-bold mb-3 uppercase">
               {team.name}
             </h1>
             <div
-              className="text-sm md:text-base lg:text-[25px] text-slum_gray_800 max-w-[620px] font-sf-display font-normal text-justify
+              className="text-sm md:text-base lg:text-[25px] text-slum_gray_800 max-w-[620px] font-sans font-normal text-justify
              [&>p]:mb-6 [&>p]:leading-[40px]"
               dangerouslySetInnerHTML={{ __html: team.content }}
             />

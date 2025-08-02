@@ -1,13 +1,9 @@
 "use client";
 
-import React from 'react'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { NewsData } from '@/json';
-import { NewsCard } from '../news/News_Card';
-import { Section_Heading } from '../Section_Heading';
-import { Section_Paragraph } from '../Section_Paragraph';
 import Copy from '../navigation/Text_Reveal_Animation';
-import { Chidinma_Paragraph } from './Chidinma_Paragraph';
+import { NewsCard } from '../news/News_Card';
 
 
 
@@ -19,11 +15,11 @@ export const News_Section = () => {
         <div className="mb-8 ps-[2%]">
 
           <Copy>
-            <p className="font-sf-display font-semibold text-base lg:text-xl leading-[32px] lg:leading-[38px] text-[#1E1E1E]">
+            <p className="font-sans font-semibold text-base lg:text-xl leading-[32px] lg:leading-[38px] text-[#1E1E1E]">
               News
             </p>
             <h2
-              className={`font-sf-display font-semibold text-[#1E1E1E] text-[28px] md:text-[32px] leading-snug`}
+              className={`font-sans font-semibold text-[#1E1E1E] text-[28px] md:text-[32px] leading-snug`}
             >
               A quick recap of what <br /> we have been working on
             </h2>

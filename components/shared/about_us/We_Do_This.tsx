@@ -1,11 +1,11 @@
 "use client";
 
 import { Triangle } from "lucide-react";
-import { Section_Heading } from "../Section_Heading";
 import { BiSolidCircleHalf } from "react-icons/bi";
 import { FaCertificate } from "react-icons/fa";
 import { PiStarFourFill } from "react-icons/pi";
 import Copy from "../navigation/Text_Reveal_Animation";
+import { Section_Heading } from "../Section_Heading";
 
 
 export default function We_Do_This() {
@@ -23,7 +23,7 @@ export default function We_Do_This() {
               </div>
 
               <Copy>
-                <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sf-display">Training programs</h2>
+                <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sans">Training programs</h2>
 
               </Copy>
               <Copy>
@@ -46,7 +46,7 @@ export default function We_Do_This() {
               </div>
 
               <Copy>
-                <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sf-display">Educational Workshops</h2>
+                <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sans">Educational Workshops</h2>
 
               </Copy>
               <Copy>
@@ -71,7 +71,7 @@ export default function We_Do_This() {
                 <BiSolidCircleHalf fill="#FFC645" className="text-slum_orange h-6 w-6 lg:w-12 lg:h-12" />
               </div>
 
-              <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sf-display">Thorough Curriculum</h2>
+              <h2 className="text-2xl lg:text-[45px] font-semibold mb-3 font-sans">Thorough Curriculum</h2>
 
               <p className="text-slum_gray_600 font-sf-text font-normal text-sm lg:text-[25px] 
               leading-[32px] w-full lg:w-[90%]">

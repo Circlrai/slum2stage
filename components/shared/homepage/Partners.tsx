@@ -1,8 +1,7 @@
 'use client'
 
 import { Image } from '@heroui/image';
-import React from 'react'
-import Marquee from "react-fast-marquee"
+import Marquee from "react-fast-marquee";
 
 const partners: { image: string }[] = [
   { image: "/assets/images/partners/twirl-africa.svg" },
@@ -23,7 +22,7 @@ export const Partners = () => {
   return (
     <section className='w-full py-20'>
       <div className='max-w-7xl mx-auto flex flex-col items-center justify-center px-4 lg:px-16 space-y-8 lg:space-y-12'>
-        <h1 className='font-sf-display font-semibold text-center text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] mb-8 leading-snug'>
+        <h1 className='font-sans font-semibold text-center text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] mb-8 leading-snug'>
           Made possible by <br />
           those who believe in us.
         </h1>

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Copy from "../navigation/Text_Reveal_Animation";
 
 const stats = [
@@ -72,7 +72,7 @@ const Timeline = () => {
       <div className="flex flex-col items-center justify-center space-y-12">
         {/* Section Title */}
         <Copy>
-          <h1 className='font-sf-display font-semibold text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] flex flex-col leading-snug'>
+          <h1 className='font-sans font-semibold text-slum_gray_800 text-[28px] md:text-[32px] lg:text-[56px] flex flex-col leading-snug'>
             <span className='capitalize'>Our impact</span>
             <span className=''>in numbers</span>
           </h1>

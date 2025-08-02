@@ -1,8 +1,8 @@
 // components/shared/form/Form_Field.tsx
 "use client";
-import React, { ReactElement } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@heroui/react";
+import React, { ReactElement } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 interface FormFieldProps {
@@ -42,7 +42,7 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   return (
     <div className="flex flex-col space-y-1.5">
-      <Label htmlFor={htmlFor} className="mb-2 text-sm md:text-base lg:text-xl text-black font-sf-display font-normal">
+      <Label htmlFor={htmlFor} className="mb-2 text-sm md:text-base lg:text-xl text-black font-sans font-normal">
         {label} <sup className="text-danger">{reqValue}</sup>
       </Label>
       <Input
@@ -51,7 +51,7 @@ const FormField: React.FC<FormFieldProps> = ({
         variant="bordered"
         classNames={{
           inputWrapper: [
-            "data-[hover=true]:border-slum_gray_300 font-sf-display font-normal",
+            "data-[hover=true]:border-slum_gray_300 font-sans font-normal",
             "group-data-[focus=true]:border-slum_gray_300",
             "rounded-[8px] font-sans",
           ],
