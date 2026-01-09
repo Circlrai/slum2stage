@@ -6,7 +6,9 @@ export async function POST(request: NextRequest) {
   const { email, guardian, kids } = await request.json();
 
   const transport = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,

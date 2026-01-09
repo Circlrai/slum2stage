@@ -19,7 +19,14 @@ import FormField from '../form/Form_Field';
 
 
 const Register_Form = () => {
-  const { register, handleSubmit, reset, setValue, formState: { isSubmitting, errors } } = useForm<FormOneData>();
+  const { register, handleSubmit, reset, setValue, watch, formState: { isSubmitting, errors } } = useForm<FormOneData>({
+    defaultValues: {
+      guardian: "",
+      email: "",
+      kids: ""
+    }
+  });
+
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSubmittingLocal, setIsSubmittingLocal] = useState(false);
@@ -33,7 +40,13 @@ const Register_Form = () => {
     setIsSubmittingLocal(true);
 
     try {
-      const payload = { ...data, kids: selectedKids };
+      const payload = {
+        ...data,
+        kids: selectedKids || data.kids
+      };
+
+      // console.log("Payload being sent:", payload); 
+
 
       const response = await sendEmail(payload);
 
@@ -120,9 +133,10 @@ const Register_Form = () => {
               </label>
               <Select
                 onValueChange={(val) => {
-                  setSelectedKids(val)
-                  setValue("kids", val)
+                  setSelectedKids(val);
+                  setValue("kids", val, { shouldValidate: true, shouldDirty: true });
                 }}
+                value={selectedKids}
               >
                 <SelectTrigger
                   style={{
