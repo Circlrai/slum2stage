@@ -42,7 +42,7 @@ const Register_Form = () => {
     try {
       const payload = {
         ...data,
-        kids: selectedKids || data.kids
+        kids: selectedKids || data.kids,
       };
 
       // console.log("Payload being sent:", payload); 
@@ -53,6 +53,7 @@ const Register_Form = () => {
       if (response && response.message === "Email sent") {
         setIsSuccessModalOpen(true);
         reset();
+        setSelectedKids("");
       } else {
         throw new Error("Failed to send message");
       }
@@ -168,6 +169,13 @@ const Register_Form = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
+              <input
+                type="hidden"
+                {...register("kids", { required: true })}
+              />
+              {errors.kids && (
+                <p className="text-sm text-red-200">Number of kids is required</p>
+              )}
 
             </div>
 

@@ -46,6 +46,13 @@ const FormField: React.FC<FormFieldProps> = ({
   inputClassName,
   labelClassName
 }) => {
+  const handleValueChange =
+    register?.onChange
+      ? (value: string) => {
+        register.onChange({ target: { value }, type: "change" });
+      }
+      : undefined;
+
   return (
     <div className="flex flex-col space-y-1.5">
       <Label
@@ -59,6 +66,7 @@ const FormField: React.FC<FormFieldProps> = ({
         type={type}
         id={id}
         variant="bordered"
+        onValueChange={handleValueChange}
 
         classNames={{
           input: inputClassName,
