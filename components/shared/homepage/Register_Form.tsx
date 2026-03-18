@@ -19,11 +19,14 @@ import FormField from '../form/Form_Field';
 
 
 const Register_Form = () => {
-  const { register, handleSubmit, reset, setValue, watch, formState: { isSubmitting, errors } } = useForm<FormOneData>({
+  const { register, handleSubmit, reset, setValue, formState: { isSubmitting, errors } } = useForm<FormOneData>({
     defaultValues: {
-      guardian: "",
+      fullName: "",
       email: "",
-      kids: ""
+      phoneNumber: "",
+      location: "",
+      age: "",
+      gender: ""
     }
   });
 
@@ -33,7 +36,7 @@ const Register_Form = () => {
 
 
 
-  const [selectedKids, setSelectedKids] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
 
   const onSubmit = async (data: FormOneData) => {
     setError(null);
@@ -42,18 +45,15 @@ const Register_Form = () => {
     try {
       const payload = {
         ...data,
-        kids: selectedKids || data.kids,
+        gender: selectedGender || data.gender,
       };
-
-      // console.log("Payload being sent:", payload); 
-
 
       const response = await sendEmail(payload);
 
       if (response && response.message === "Email sent") {
         setIsSuccessModalOpen(true);
         reset();
-        setSelectedKids("");
+        setSelectedGender("");
       } else {
         throw new Error("Failed to send message");
       }
@@ -97,28 +97,28 @@ const Register_Form = () => {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <FormField
-              label="Name of guardian/parent"
-              htmlFor="guardian"
+              label="Full name"
+              htmlFor="fullName"
               type="text"
-              id="guardian"
+              id="fullName"
               size="sm"
-              placeholder="Enter Your Name"
+              placeholder="Enter your full name"
               reqValue="*"
               required
-              register={register("guardian", { required: true })}
-              isInvalid={!!errors.guardian}
+              register={register("fullName", { required: true })}
+              isInvalid={!!errors.fullName}
               errorMessage="Full name is required"
               inputClassName="text-white placeholder:text-gray-300"
               labelClassName="text-white"
             />
 
             <FormField
-              label="Email"
+              label="Email Address"
               htmlFor="email"
               type="email"
               id="email"
               size="sm"
-              placeholder="Enter Your Email"
+              placeholder="Enter your email address"
               reqValue="*"
               required
               register={register("email", { required: true })}
@@ -128,16 +128,64 @@ const Register_Form = () => {
               labelClassName="text-white"
             />
 
+            <FormField
+              label="Phone Number"
+              htmlFor="phoneNumber"
+              type="tel"
+              id="phoneNumber"
+              size="sm"
+              placeholder="Enter your phone number"
+              reqValue="*"
+              required
+              register={register("phoneNumber", { required: true })}
+              isInvalid={!!errors.phoneNumber}
+              errorMessage="Phone number is required"
+              inputClassName="text-white placeholder:text-gray-300"
+              labelClassName="text-white"
+            />
+
+            <FormField
+              label="Location"
+              htmlFor="location"
+              type="text"
+              id="location"
+              size="sm"
+              placeholder="Enter your location"
+              reqValue="*"
+              required
+              register={register("location", { required: true })}
+              isInvalid={!!errors.location}
+              errorMessage="Location is required"
+              inputClassName="text-white placeholder:text-gray-300"
+              labelClassName="text-white"
+            />
+
+            <FormField
+              label="Age"
+              htmlFor="age"
+              type="number"
+              id="age"
+              size="sm"
+              placeholder="Enter your age"
+              reqValue="*"
+              required
+              register={register("age", { required: true })}
+              isInvalid={!!errors.age}
+              errorMessage="Age is required"
+              inputClassName="text-white placeholder:text-gray-300"
+              labelClassName="text-white"
+            />
+
             <div className="space-y-2">
               <label className="block mb-2 text-sm md:text-base lg:text-xl text-white font-sf-display font-normal">
-                Number of Kids
+                Gender
               </label>
               <Select
                 onValueChange={(val) => {
-                  setSelectedKids(val);
-                  setValue("kids", val, { shouldValidate: true, shouldDirty: true });
+                  setSelectedGender(val);
+                  setValue("gender", val, { shouldValidate: true, shouldDirty: true });
                 }}
-                value={selectedKids}
+                value={selectedGender}
               >
                 <SelectTrigger
                   style={{
@@ -153,30 +201,28 @@ const Register_Form = () => {
                   }}
                 >
                   <SelectValue
-                    placeholder="Select number of kids"
+                    placeholder="Select gender"
                     className="text-white placeholder:text-gray-300 font-sf-display font-normal"
                   />
                 </SelectTrigger>
 
                 <SelectContent className="py-4 text-black bg-white border ">
                   <SelectGroup>
-                    <SelectLabel className="text-black">No. of kids</SelectLabel>
-                    <SelectItem value="1">1</SelectItem>
-                    <SelectItem value="2">2</SelectItem>
-                    <SelectItem value="3">3</SelectItem>
-                    <SelectItem value="4">4</SelectItem>
-                    <SelectItem value="5">5</SelectItem>
+                    <SelectLabel className="text-black">Gender</SelectLabel>
+                    <SelectItem value="female">Female</SelectItem>
+                    <SelectItem value="male">Male</SelectItem>
+                    <SelectItem value="non-binary">Non-binary</SelectItem>
+                    <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
               <input
                 type="hidden"
-                {...register("kids", { required: true })}
+                {...register("gender", { required: true })}
               />
-              {errors.kids && (
-                <p className="text-sm text-red-200">Number of kids is required</p>
+              {errors.gender && (
+                <p className="text-sm text-red-200">Gender is required</p>
               )}
-
             </div>
 
             <button
@@ -200,7 +246,7 @@ const Register_Form = () => {
               <CircleCheckBig className='w-20 h-20 text-primary' />
             </DialogTitle>
             <DialogDescription className='text-center text-lg'>
-              Thank you for your interest in volunteering with us. We&apos;ll get back to you soon.
+              Thank you for your interest in joining Slum to Stage. We are building a community of individuals passionate about transforming the lives of children and at risk youth through arts and education. Your interest is recorded and our team will reach out to you.
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end mt-4">

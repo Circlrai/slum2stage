@@ -11,7 +11,7 @@ const company = [
   { label: "Team", href: "/team" },
   { label: "Program", href: "/our-program" },
   { label: "News", href: "/news" },
-  { label: "Register", href: "/auth/register" }
+  { label: "Become a Volunteer", href: "/auth/register" }
 ]
 
 

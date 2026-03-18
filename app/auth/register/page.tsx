@@ -1,9 +1,8 @@
-import { DanceRegistrationForm } from '@/views'
-import React from 'react'
+import Register_Form from "@/views/auth/Register";
+import React from "react";
 
 const Register = () => {
-  return (<DanceRegistrationForm />
-  )
-}
+  return <Register_Form />;
+};
 
-export default Register
+export default Register;

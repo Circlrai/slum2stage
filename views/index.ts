@@ -6,8 +6,6 @@ import { Our_ProgramsView } from "./Our_ProgramsView";
 import { NewsView } from "./NewsView";
 import { SingleNewsPage } from "./SingleNewsView";
 
-//auth
-import { DanceRegistrationForm } from "./auth/Register";
 import { TeamsView } from "./TeamsView";
 import { SingleTeamView } from "./SingleTeamView";
 
@@ -16,7 +14,6 @@ export {
   AboutView,
   ContactView,
   DonationView,
-  DanceRegistrationForm,
   Our_ProgramsView,
   NewsView,
   SingleNewsPage,

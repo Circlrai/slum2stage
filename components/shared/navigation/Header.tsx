@@ -17,7 +17,7 @@ const navigation = [
   { title: "Program", route: "/our-program" },
   { title: "News", route: "/news" },
   { title: "Contact Us", route: "/contact-us" },
-  { title: "Become a Student", route: "/auth/register" }
+  { title: "Become a Volunteer", route: "/auth/register" }
 ]
 
 export function Header() {
