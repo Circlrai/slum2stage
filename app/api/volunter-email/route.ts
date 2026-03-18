@@ -59,8 +59,13 @@ Gender: ${gender}
     <div style="background: #F3FAFC; padding: 32px 12px;">
       <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #EAECF0; border-radius: 16px; overflow: hidden; font-family: Arial, sans-serif; color: #101828;">
         <div style="background: #44B5D0; padding: 20px 24px; color: #ffffff;">
-          <div style="font-size: 18px; font-weight: 700; letter-spacing: 0.4px;">Slum to Stage</div>
-          <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Volunteer Interest Submission</div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://www.slum2stage.org/_next/static/media/Logo.bf751a73.svg" alt="Slum to Stage" style="height: 32px; width: auto; display: block;" />
+            <div>
+              <div style="font-size: 18px; font-weight: 700; letter-spacing: 0.4px;">Slum to Stage</div>
+              <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Volunteer Interest Submission</div>
+            </div>
+          </div>
         </div>
         <div style="padding: 24px;">
           <p style="margin: 0 0 16px;">You have a new volunteer interest submission. Details below.</p>
@@ -113,9 +118,42 @@ Gender: ${gender}
     html: htmlBody,
   };
 
-  const sendMailPromise = () =>
+  const confirmationText = `Hello ${fullName},
+
+Thank you for your interest in joining Slum to Stage. We are building a community of individuals passionate about transforming the lives of children and at risk youth through arts and education. Your interest is recorded and our team will reach out to you.
+`;
+
+  const confirmationHtml = `
+    <div style="background: #F3FAFC; padding: 32px 12px;">
+      <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #EAECF0; border-radius: 16px; overflow: hidden; font-family: Arial, sans-serif; color: #101828;">
+        <div style="background: #44B5D0; padding: 20px 24px; color: #ffffff;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://www.slum2stage.org/_next/static/media/Logo.bf751a73.svg" alt="Slum to Stage" style="height: 32px; width: auto; display: block;" />
+            <div>
+              <div style="font-size: 18px; font-weight: 700; letter-spacing: 0.4px;">Slum to Stage</div>
+              <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Volunteer Confirmation</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 24px;">
+          <p style="margin: 0 0 16px;">Hello ${fullName},</p>
+          <p style="margin: 0 0 16px;">
+            Thank you for your interest in joining Slum to Stage. We are building a community of individuals passionate about transforming the lives of children and at risk youth through arts and education. Your interest is recorded and our team will reach out to you.
+          </p>
+          <div style="margin-top: 20px; padding: 12px 16px; background: #F3FAFC; border: 1px solid #EAECF0; border-radius: 12px; color: #667085;">
+            If you have questions, reply to this email and we will get back to you.
+          </div>
+        </div>
+        <div style="padding: 14px 24px; background: #F9FAFB; color: #667085; font-size: 12px;">
+          Slum to Stage | Volunteer Community
+        </div>
+      </div>
+    </div>
+  `;
+
+  const sendMailPromise = (options: Mail.Options) =>
     new Promise<string>((resolve, reject) => {
-      transport.sendMail(mailOptions, function (err) {
+      transport.sendMail(options, function (err) {
         if (!err) {
           resolve("Email sent");
         } else {
@@ -125,7 +163,15 @@ Gender: ${gender}
     });
 
   try {
-    await sendMailPromise();
+    await sendMailPromise(mailOptions);
+    await sendMailPromise({
+      from: smtpUser,
+      to: email,
+      replyTo: receiverEmail,
+      subject: "Thanks for volunteering with Slum to Stage",
+      text: confirmationText,
+      html: confirmationHtml,
+    });
     return NextResponse.json({ message: "Email sent" });
   } catch (err) {
     // Explicit error logging
