@@ -1,7 +1,10 @@
 export type FormOneData = {
-  guardian: string;
+  fullName: string;
   email: string;
-  kids: string;
+  phoneNumber: string;
+  location: string;
+  age: string;
+  gender: string;
 };
 
 export type FormTwoData = {
