@@ -61,10 +61,6 @@ Gender: ${gender}
         <div style="background: #44B5D0; padding: 20px 24px; color: #ffffff;">
           <div style="display: flex; align-items: center; gap: 12px;">
             <img src="https://www.slum2stage.org/_next/static/media/Logo.bf751a73.svg" alt="Slum to Stage" style="height: 32px; width: auto; display: block;" />
-            <div>
-              <div style="font-size: 18px; font-weight: 700; letter-spacing: 0.4px;">Slum to Stage</div>
-              <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Volunteer Interest Submission</div>
-            </div>
           </div>
         </div>
         <div style="padding: 24px;">
@@ -129,10 +125,7 @@ Thank you for your interest in joining Slum to Stage. We are building a communit
         <div style="background: #44B5D0; padding: 20px 24px; color: #ffffff;">
           <div style="display: flex; align-items: center; gap: 12px;">
             <img src="https://www.slum2stage.org/_next/static/media/Logo.bf751a73.svg" alt="Slum to Stage" style="height: 32px; width: auto; display: block;" />
-            <div>
-              <div style="font-size: 18px; font-weight: 700; letter-spacing: 0.4px;">Slum to Stage</div>
-              <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">Volunteer Confirmation</div>
-            </div>
+           
           </div>
         </div>
         <div style="padding: 24px;">
